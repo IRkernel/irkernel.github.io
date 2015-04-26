@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>
+	{% if page.title %} {{ page.title }} · {% endif %} IRkernel
+</title>
+<meta charset=utf-8>
+<link rel=stylesheet href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.2.2/octicons.min.css"></link>
+<link rel=stylesheet href="//fonts.googleapis.com/css?family=Roboto:400,100,700">
+<link rel=stylesheet href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css"></link>
+<link rel=stylesheet href="{{ site.baseurl }}/css/pygments-github-style/jekyll-github.css"></link>
+<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+</head>
+<body>
+<div class=navbar-fixed>
+	<nav class=deep-purple>
+		<div class="nav-wrapper">
+			<a href="/" class="brand-logo center">IRkernel</a>
+			<!--<ul class=left>
+				<li><a href=""></a></li>
+				<li><a href=""></a></li>
+			</ul>-->
+			<ul class=right>
+				<li><a href="https://github.com/IRkernel" class="mega-octicon octicon-mark-github">&nbsp;:</a></li>
+				<li><a href="https://github.com/IRkernel/IRkernel">IRkernel</a></li>
+				<li><a href="https://github.com/IRkernel/IRdisplay">IRdisplay</a></li>
+				<li><a href="https://github.com/IRkernel/repr">repr</a></li>
+			</ul>
+		</div>
+	</nav>
+</div>
+<main class=container>
+	{% if page.title %}
+	<h1 class="header deep-purple-text">{{ page.title }}</h1>
+	{% endif %}
+	</header>
+	{{ content }}
+</main>
+</body>
+</html>
