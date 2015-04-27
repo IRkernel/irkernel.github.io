@@ -1,0 +1,26 @@
+Package: IRdisplay
+Version: 0.2
+Depends: R (>= 3.0.1)
+Imports: repr, base64enc
+License: MIT + file LICENSE
+MD5sum: 9785bb19211b791ae5c6bc99bb939787
+
+Package: IRkernel
+Version: 0.2
+Depends: R (>= 3.0.1)
+Imports: repr, methods, evaluate (>= 0.5.4), IRdisplay, rzmq (>= 0.7.0), jsonlite (>= 0.9.6), uuid, digest
+License: MIT + file LICENSE
+MD5sum: e6869c3d415b3444cae90c2a73409d97
+
+Package: repr
+Version: 0.0.0.9000
+Depends: R (>= 3.0.1)
+Suggests: highr
+License: GPL-3
+MD5sum: 12470db8223ff76e7cd2d2d292e3137b
+
+Package: rzmq
+Version: 0.7.7
+License: GPL-3
+MD5sum: d78a164bfef2c46c7b46080caa5f0253
+
