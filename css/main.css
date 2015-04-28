@@ -25,9 +25,13 @@ pre {
 	}
 }
 
-/* restore numbered lists */
-ol li {
+/* restore lists */
+main ol li {
 	list-style-type: decimal;
+}
+
+main ul li {
+	list-style-type: circle;
 }
 
 /* custom stuff */
