@@ -26,7 +26,11 @@ pre {
 }
 
 /* custom stuff */
-main > h1:first-child {
+h1, h2, h3, h4, h5, h6 {
 	color: #673AB7;
+	font-weight: 300;
+}
+
+h1 {
 	font-weight: 100;
 }
