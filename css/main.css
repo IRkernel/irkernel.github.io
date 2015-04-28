@@ -26,12 +26,16 @@ pre {
 }
 
 /* restore lists */
-main ol li {
+main ol {
 	list-style-type: decimal;
 }
 
-main ul li {
+main ul {
 	list-style-type: circle;
+}
+
+main ul li {
+	list-style-type: inherit;
 }
 
 /* custom stuff */
