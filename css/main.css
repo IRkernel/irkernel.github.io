@@ -27,7 +27,7 @@ pre {
 
 /* restore numbered lists */
 ol li {
-	list-style-type: initial;
+	list-style-type: decimal;
 }
 
 /* custom stuff */
