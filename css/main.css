@@ -28,4 +28,5 @@ pre {
 /* custom stuff */
 main > h1:first-child {
 	color: #673AB7;
+	font-weight: 100;
 }
