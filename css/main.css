@@ -24,3 +24,8 @@ pre {
 		transform: none;
 	}
 }
+
+/* custom stuff */
+main > h1:first-child {
+	color: #673AB7;
+}
