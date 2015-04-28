@@ -11,10 +11,7 @@ main {
 
 
 /* override code blocks */
-.highlight pre, pre,
-.highlight .hll {
-	background-color: white;
-	border: 0px solid transparent;
+pre {
 	padding: 20px;
 	border-radius: 2px;
 	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
