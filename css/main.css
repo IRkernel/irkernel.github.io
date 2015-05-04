@@ -18,10 +18,19 @@ pre {
 }
 
 /* a bit more than “small” */
+img.logo {
+	float: right;
+	margin-top: 1em;
+	max-width: 20%;
+}
+
 @media only screen and (max-width: 700px) {
 	nav .brand-logo.center {
 		left: 1em;
 		transform: none;
+	}
+	img.logo {
+		display: none;
 	}
 }
 
