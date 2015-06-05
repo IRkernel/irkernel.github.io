@@ -7,12 +7,12 @@ MD5sum: 23d38d54c86468ef8bebfab5518620ad
 NeedsCompilation: no
 
 Package: IRkernel
-Version: 0.3
+Version: 0.4
 Depends: R (>= 3.0.1)
 Imports: repr, methods, evaluate (>= 0.5.4), IRdisplay, rzmq (>=
         0.7.0), jsonlite (>= 0.9.6), uuid, digest
 License: MIT + file LICENSE
-MD5sum: 116ff5df0ff28d3cee642dc4aa339c24
+MD5sum: f139d1a46790730cf381b38d7c91b769
 NeedsCompilation: no
 
 Package: repr
@@ -26,6 +26,6 @@ NeedsCompilation: no
 Package: rzmq
 Version: 0.7.7
 License: GPL-3
-MD5sum: 297240be35b02cb04ce378f31083d67d
+MD5sum: 4a0114038502b470f7e62cd48ec89934
 NeedsCompilation: yes
 
