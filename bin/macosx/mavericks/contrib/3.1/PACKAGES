@@ -14,11 +14,11 @@ License: MIT + file LICENSE
 MD5sum: 723777aed8f3f2c80b92566f34ccc8dd
 
 Package: repr
-Version: 0.1
+Version: 0.2
 Depends: R (>= 3.0.1)
 Suggests: highr
 License: GPL-3
-MD5sum: 566ea0a3b1c7b8d46eb6c0c87f6f1017
+MD5sum: 64d4b2ecba6d3b401f5b50881fcbe6dd
 
 Package: rzmq
 Version: 0.7.7
