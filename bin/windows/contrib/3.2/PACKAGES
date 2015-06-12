@@ -12,7 +12,7 @@ Imports: repr, methods, evaluate (>= 0.5.4), IRdisplay, rzmq (>=
 License: MIT + file LICENSE
 
 Package: repr
-Version: 0.1
+Version: 0.2
 Depends: R (>= 3.0.1)
 Suggests: highr
 License: GPL-3
