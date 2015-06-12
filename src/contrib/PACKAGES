@@ -16,11 +16,11 @@ MD5sum: f139d1a46790730cf381b38d7c91b769
 NeedsCompilation: no
 
 Package: repr
-Version: 0.1
+Version: 0.2
 Depends: R (>= 3.0.1)
 Suggests: highr
 License: GPL-3
-MD5sum: 735eee7326f0375926b53c192db58891
+MD5sum: c62206d2c313c83586ef91b6ad298848
 NeedsCompilation: no
 
 Package: rzmq
