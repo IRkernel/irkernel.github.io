@@ -5,6 +5,10 @@ img.logo {
 }
 
 /*layout fix*/
+html {
+	background-color: white;
+}
+
 .mdl-layout__content {
 	display: flex;
 	flex-direction: column;
