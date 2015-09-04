@@ -1,3 +1,0 @@
-[submodule "IRkernel"]
-	path = _includes/IRkernel
-	url = https://github.com/IRkernel/IRkernel.git

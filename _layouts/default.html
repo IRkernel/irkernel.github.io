@@ -1,61 +1,10 @@
-<html>
-<head>
-<title>
-	{% if page.title %} {{ page.title }} · {% endif %} IRkernel
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width, initial-scale=1">
-<link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/octicons/2.2.2/octicons.min.css></link>
-<link rel=stylesheet href=//fonts.googleapis.com/css?family=Roboto:100,300,400,700>
-<link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css></link>
-<link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/color-brewer.min.css></link>
-<link rel=stylesheet href={{site.baseurl}}/css/main.css></link>
-<script src=//code.jquery.com/jquery-2.1.3.min.js></script>
-<script src=//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js></script>
-<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js></script>
-<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/languages/r.min.js></script>
-<script src={{site.baseurl}}/js/main.js></script>
-</head>
-<body>
-<header class=navbar-fixed>
-	<nav class=deep-purple>
-		<div class=nav-wrapper>
-			<a href=/ class="brand-logo center">IRkernel</a>
-			<!--<ul class=left>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-			</ul>-->
-			<ul class="right hide-on-small-and-down">
-				<li><a href=https://github.com/IRkernel><i class="mega-octicon octicon-mark-github"></i></a></li>
-				<li><a href=https://github.com/IRkernel/IRkernel>IRkernel</a></li>
-				<li><a href=https://github.com/IRkernel/IRdisplay>IRdisplay</a></li>
-				<li><a href=https://github.com/IRkernel/repr>repr</a></li>
-			</ul>
-			<ul class="right hide-on-med-and-up">
-				<li><a href=# class=dropdown-button data-activates=dropdown data-constrainwidth=false><i class="mdi-navigation-more-vert"></i></a></li>
-			</ul>
-			<ul id=dropdown class=dropdown-content>
-				<li><a href=https://github.com/IRkernel>IRkernel</a></li>
-				<li><a href=https://github.com/IRkernel/IRkernel>IRkernel/IRkernel</a></li>
-				<li><a href=https://github.com/IRkernel/IRdisplay>IRkernel/IRdisplay</a></li>
-				<li><a href=https://github.com/IRkernel/repr>IRkernel/repr</a></li>
-			</ul>
-		</div>
-	</nav>
-</header>
-<main class=container>
-	<img class=logo src=images/irkernel-logo.svg></img>
-	{% if page.title %}
-	<h1 class="header deep-purple-text">{{ page.title }}</h1>
-	{% endif %}
-	</header>
-	{{ content }}
-</main>
-<footer class="deep-purple white-text page-footer">
-	<div class=container>
-		<p>IRkernel, by <a href=https://github.com/takluyver>Thomas Kluyver</a> and <a href=https://github.com/flying-sheep>Philipp A.</a></p>
-		<p>Website powered by <a href=http://materializecss.com>materialize</a></p>
-	</div>
-</footer>
-</body>
-</html>
+---
+layout: raw
+title: Requirements
+step: req
+---
+
+{% if page.title %}
+<h1>{{ page.title }}</h1>
+{% endif %}
+{{ content }}

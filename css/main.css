@@ -1,50 +1,27 @@
-/* sticky footer */
-body {
+/* a bit more than “small” */
+img.logo {
+	max-width: 20%;
+	vertical-align: middle;
+}
+
+/*layout fix*/
+.mdl-layout__content {
 	display: flex;
-	min-height: 100vh;
 	flex-direction: column;
 }
 
-main {
-	flex: 1 0 auto;
+.page-content {
+	flex-grow: 1;
 }
 
-
-/* override code blocks */
-pre {
-	padding: 20px;
-	border-radius: 2px;
-	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
+/*hljs*/
+.hljs {
+	display: initial;
+	padding: initial;
 }
-
-/* a bit more than “small” */
-img.logo {
-	float: right;
-	margin-top: 1em;
-	max-width: 20%;
-}
-
-@media only screen and (max-width: 700px) {
-	nav .brand-logo.center {
-		left: 1em;
-		transform: none;
-	}
-	img.logo {
-		display: none;
-	}
-}
-
-/* restore lists */
-main ol {
-	list-style-type: decimal;
-}
-
-main ul {
-	list-style-type: circle;
-}
-
-main ul li {
-	list-style-type: inherit;
+pre > code.hljs {
+	display: block;
+	padding: .5rem;
 }
 
 /* custom stuff */
@@ -55,4 +32,16 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-weight: 100;
+}
+
+.section--center {
+	max-width: 620px;
+}
+
+.step {
+	text-decoration: none;
+	text-transform: uppercase;
+	height: 56px;
+	white-space: nowrap;
+	overflow: visible;
 }

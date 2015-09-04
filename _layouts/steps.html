@@ -1,0 +1,30 @@
+---
+layout: raw 
+---
+
+<nav class=mdl-grid>
+	<a href=/requirements class="step mdl-cell mdl-cell--4-col">
+		<button class="mdl-button mdl-js-button mdl-button--fab {% if page.step != 'req' %}mdl-button--colored{% endif %}">
+			<i class="material-icons">assessment</i>
+		</button>
+		Requirements
+	</a>
+	<a href=/installation class="step mdl-cell mdl-cell--4-col">
+		<button class="mdl-button mdl-js-button mdl-button--fab {% if page.step != 'ins' %}mdl-button--colored{% endif %}">
+			<i class="material-icons">file_download</i>
+		</button>
+		Installation
+	</a>
+	<a href=/running class="step mdl-cell mdl-cell--4-col">
+		<button class="mdl-button mdl-js-button mdl-button--fab {% if page.step != 'run' %}mdl-button--colored{% endif %}">
+			<i class="material-icons">launch</i>
+		</button>
+		Running
+	</a>
+</nav>
+
+{% if page.title %}
+<h1>{{ page.title }}</h1>
+{% endif %}
+
+{{content}} 
