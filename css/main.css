@@ -49,3 +49,13 @@ h1 {
 	white-space: nowrap;
 	overflow: visible;
 }
+
+figure.mdl-card {
+	width: auto;
+	max-width: 100%;
+	margin: 16px auto;
+}
+
+figure.mdl-card > .mdl-card__media {
+	max-width:100%;
+}
