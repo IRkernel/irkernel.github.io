@@ -20,7 +20,7 @@ Version: 0.4
 Depends: R (>= 3.0.1)
 Suggests: highr
 License: GPL-3
-MD5sum: 2c6d7ab6549727cd073ff4c54ceedd25
+MD5sum: 45647bc02001f59a5afee06a2d22467f
 NeedsCompilation: no
 
 Package: rzmq
