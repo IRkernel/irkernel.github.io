@@ -33,6 +33,7 @@ options(repos = r)</code></pre>
 		<div class="mdl-tabs mdl-js-tabs-fixed mdl-js-ripple-effect mdl-shadow--2dp">
 			<div class="mdl-tabs__tab-bar">
 				<a href="#ubuntu-panel"    class=mdl-tabs__tab>Ubuntu/Debian</a>
+				<a href="#fedora-panel"    class=mdl-tabs__tab>Fedora</a>
 				<a href="#archlinux-panel" class=mdl-tabs__tab>Arch</a>
 				<a href="#homebrew-panel"  class=mdl-tabs__tab>Homebrew</a>
 				<a href="#macports-panel"  class=mdl-tabs__tab>MacPorts</a>
@@ -40,6 +41,9 @@ options(repos = r)</code></pre>
 			</div>
 			<div class=mdl-tabs__panel id=ubuntu-panel>
 				<pre class="bash"><code>sudo apt-get install libzmq3-dev</code></pre>
+			</div>
+			<div class=mdl-tabs__panel id=fedora-panel>
+				<pre class="bash"><code>sudo yum install czmq-devel</code></pre>
 			</div>
 			<div class=mdl-tabs__panel id=archlinux-panel>
 				<pre class="bash"><code>sudo pacman -S zeromq</code></pre>
