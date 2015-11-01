@@ -15,6 +15,26 @@ step: ins
 		<p>We provide Windows and Mac OS X binary packages of all the needed packages. The packages can be installed for the with the following lines in an R console:</p>
 		<pre class="r mdl-shadow--2dp"><code>install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
                  repos = c('http://irkernel.github.io/', getOption('repos')))</code></pre>
+		<div class="card-note mdl-card mdl-shadow--2dp">
+			<div class="mdl-card__title">
+				<i class="material-icons">warning</i>
+				<div class="mdl-layout-spacer"></div>
+				Important!
+				<div class="mdl-layout-spacer"></div>
+				<i class="material-icons">warning</i>
+			</div>
+			<div class="mdl-card__supporting-text">
+				If this fails, search the output for something like:
+				<pre class="r mdl-shadow--2dp"><code>** testing if installed package can be loaded
+Error in dyn.load(file, DLLpath = DLLpath, ...) :
+  unable to load shared object '/Users/[you]/anaconda/lib/R/library/rzmq/libs/rzmq.so':
+  dlopen(/Users/[you]/anaconda/lib/R/library/rzmq/libs/rzmq.so, 6): Library not loaded: libzmq.5.dylib
+  Referenced from: /Users/[you]/anaconda/lib/R/library/rzmq/libs/rzmq.so
+  Reason: image not found</code></pre>
+				This would mean that the R binary package of <strong>rzmq</strong> was compiled against a different version of <strong>libzmq</strong> from the one on your system.<br>
+				It can be fixed by installing from source (click the “Source” tab above)
+			</div>
+		</div>
 		<p>To update packages, you have to either add the repo to your default ones in your R startup file and update afterwards as normal:</p>
 		<pre class="r mdl-shadow--2dp"><code>r &lt;- getOption('repos')
 r$IRkernel &lt;- 'http://irkernel.github.io/'
