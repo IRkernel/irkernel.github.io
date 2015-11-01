@@ -6,56 +6,48 @@ step: ins
 
 <div class="mdl-tabs mdl-js-tabs-fixed mdl-js-ripple-effect">
 	<div class="mdl-tabs__tab-bar">
-		<a href="#binary-panel" class="mdl-tabs__tab is-active">Binary (OSX/Win)</a>
-		<a href="#source-panel" class=mdl-tabs__tab>Source (Linux)</a>
+		<a href="#binary-panel" class="mdl-tabs__tab is-active">Binary</a>
+		<a href="#source-panel" class=mdl-tabs__tab>Source</a>
 		<a href="#devel-panel" class=mdl-tabs__tab>Development</a>
 	</div>
 	<div class="mdl-tabs__panel is-active" id=binary-panel>
-		<h3>Installing via supplied binary packages<br>(Windows + Mac OS X)</h3>
-		<p>We provide Windows and Mac OS X binary packages of all the needed packages. The packages and the kernel spec can be installed for the current user with the following lines in an R console:</p>
+		<h3>Installing via supplied binary packages<br>(default on Windows + Mac OS X)</h3>
+		<p>We provide Windows and Mac OS X binary packages of all the needed packages. The packages can be installed for the with the following lines in an R console:</p>
 		<pre class="r mdl-shadow--2dp"><code>install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
-                 repos = c('http://irkernel.github.io/', getOption('repos')))
-IRkernel::installspec()</code></pre>
-		<p>To install system-wide, set <code>user</code> to False in the <code>installspec</code> command:</p>
-		<pre class="r mdl-shadow--2dp"><code>IRkernel::installspec(user = FALSE)</code></pre>
+                 repos = c('http://irkernel.github.io/', getOption('repos')))</code></pre>
 		<p>To update packages, you have to either add the repo to your default ones in your R startup file and update afterwards as normal:</p>
 		<pre class="r mdl-shadow--2dp"><code>r &lt;- getOption('repos')
 r$IRkernel &lt;- 'http://irkernel.github.io/'
 options(repos = r)</code></pre>
 		<p>Or use the <code>repo</code> option to <code>update.packages()</code> directly:</p>
 		<pre class="r mdl-shadow--2dp"><code>update.packages(repos = c('http://irkernel.github.io/', getOption('repos')))</code></pre>
-		<p>Please note that during the initial development, these packages can be updated without changing the version number, which prevents updating via <code>update.packages()</code>. In that case, updated packages can be installed by re-running the above <code>install.packages()</code> line.</p>
 	</div>
 	<div class=mdl-tabs__panel id=source-panel>
-		<h3>Installing from source<br>(Linux default, possible everywhere)</h2>
+		<h3>Installing from source<br>(default on Linux)</h2>
 		<h4>ZMQ</h3>
-		<p>You'll need zmq development headers to compile rzmq.</p>
+		<p>You'll need zmq development headers to compile rzmq (Click your OS):</p>
 		<div class="mdl-tabs mdl-js-tabs-fixed mdl-js-ripple-effect mdl-shadow--2dp">
 			<div class="mdl-tabs__tab-bar">
-				<a href="#ubuntu-panel"    class=mdl-tabs__tab>Ubuntu/Debian</a>
-				<a href="#fedora-panel"    class=mdl-tabs__tab>Fedora</a>
-				<a href="#archlinux-panel" class=mdl-tabs__tab>Arch</a>
-				<a href="#homebrew-panel"  class=mdl-tabs__tab>Homebrew</a>
-				<a href="#macports-panel"  class=mdl-tabs__tab>MacPorts</a>
-				<a href="#windows-panel"   class=mdl-tabs__tab>Windows</a>
+				<a href="#linux-panel"   class=mdl-tabs__tab>Linux</a>
+				<a href="#os-x-panel"    class=mdl-tabs__tab>OS X</a>
+				<a href="#windows-panel" class=mdl-tabs__tab>Windows</a>
 			</div>
-			<div class=mdl-tabs__panel id=ubuntu-panel>
+			<div class="card-panel mdl-tabs__panel" id=linux-panel>
+				<h5>Ubuntu and Debian</h5>
 				<pre class="bash"><code>sudo apt-get install libzmq3-dev</code></pre>
-			</div>
-			<div class=mdl-tabs__panel id=fedora-panel>
+				<h5>Fedora</h5>
 				<pre class="bash"><code>sudo yum install czmq-devel</code></pre>
-			</div>
-			<div class=mdl-tabs__panel id=archlinux-panel>
+				<h5>Arch Linux</h5>
 				<pre class="bash"><code>sudo pacman -S zeromq</code></pre>
 			</div>
-			<div class=mdl-tabs__panel id=homebrew-panel>
+			<div class="card-panel mdl-tabs__panel" id=os-x-panel>
+				<h5>Homebrew</h5>
 				<pre class="bash"><code>xcode-select --install
 brew install zmq
 # or upgrade
 brew update
 brew upgrade zmq</code></pre>
-			</div>
-			<div class=mdl-tabs__panel id=macports-panel>
+				<h5>MacPorts</h5>
 				<ol>
 					<li>make sure an <a href="http://xquartz.macosforge.org/">X server is installed</a>, open a terminal and do the following:
 					<pre class="bash"><code>xcode-select --install
@@ -65,21 +57,20 @@ sudo port install zmq</code></pre></li>
 export LIBRARY_PATH=/opt/local/lib</code></pre></li>
 				</ol>
 			</div>
-			<div class=mdl-tabs__panel id=windows-panel>
+			<div class="card-panel mdl-tabs__panel" id=windows-panel>
 				<p>See <a href="https://github.com/IRkernel/IRkernel/issues/54#issuecomment-84467798">this bugreport</a> for instruction on how to compile on windows.
 			</div>
 		</div>
-		<h4>R</h3>
+		<h4>R packages</h3>
 		<p>Start <code>R</code> in the same terminal, and proceed as below.</p>
 		<p>You can install snapshot packages and the kernel spec via</p>
 		<pre class="r mdl-shadow--2dp"><code>install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
                  repos = c('http://irkernel.github.io/', getOption('repos')),
-                 type = 'source')
-IRkernel::installspec()</code></pre>
-		<p>To update your source installation, repeat the <code>install.packages</code> step.</p>
+                 type = 'source')</code></pre>
+		<p>To update your source installation, repeat above step.</p>
 	</div>
 	<div class=mdl-tabs__panel id=devel-panel>
-		<h3>Development Version</h3>
+		<h3>Development Version<br>(Only recommended to test a bugfix which is not yet in a stable version)</h3>
 		<p>If you want to compile the latest and greatest (and maybe buggiest…) from git, the easiest way is via the <code>devtools</code> package.</p>
 		<p>On Ubuntu/Debian, a header package is needed to compile RCurl:</p>
 		<pre class="bash mdl-shadow--2dp"><code>sudo apt-get install libcurl4-openssl-dev</code></pre>
@@ -91,9 +82,26 @@ library(devtools)
 # Install the packages
 install_github('IRkernel/repr')
 install_github('IRkernel/IRdisplay')
-install_github('IRkernel/IRkernel')
-# Install the kernel spec
-IRkernel::installspec()</code></pre>
+install_github('IRkernel/IRkernel')</code></pre>
 		<p>To update the git versions, repeat the <code class=r>install_github('IRkernel/...')</code> steps.</p>
 	</div>
-</div> 
+</div>
+
+<h3>Making the kernel available to Jupyter</h3>
+<div class="card-note mdl-card mdl-shadow--2dp">
+	<div class="mdl-card__title">
+		<i class="material-icons">warning</i>
+		<div class="mdl-layout-spacer"></div>
+		Important!
+		<div class="mdl-layout-spacer"></div>
+		<i class="material-icons">warning</i>
+	</div>
+	<div class="mdl-card__supporting-text">
+		On OS X, be sure to execute this in R  started from the Terminal, not the R App!<br>
+		(This is because the R app doesn’t honor <var>$PATH</var> changes in <samp>~/.bash_profile</samp>)
+	</div>
+</div>
+The kernel spec can be installed for the current user with the following line from R:
+<pre class="r mdl-shadow--2dp"><code>IRkernel::installspec()</code></pre>
+<p>To install system-wide, set <code>user</code> to False in the <code>installspec</code> command:</p>
+<pre class="r mdl-shadow--2dp"><code>IRkernel::installspec(user = FALSE)</code></pre>
