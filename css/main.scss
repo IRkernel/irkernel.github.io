@@ -1,3 +1,6 @@
+---
+---
+
 /* a bit more than “small” */
 img.logo {
 	max-width: 20%;
@@ -14,8 +17,17 @@ html {
 	flex-direction: column;
 }
 
+$article-width: 52rem;
+
 .page-content {
 	flex-grow: 1;
+	margin: 0 auto;
+	max-width: $article-width;
+	width: 100%;
+}
+
+.offcenter {
+	max-width: 100%;
 }
 
 /*hljs*/
@@ -38,10 +50,6 @@ h1 {
 	font-weight: 100;
 }
 
-.section--center {
-	max-width: 620px;
-}
-
 .step {
 	text-decoration: none;
 	text-transform: uppercase;
@@ -50,12 +58,29 @@ h1 {
 	overflow: visible;
 }
 
+$note-width: 30rem;
+$note-pad: 1rem;
+
 .card-note {
 	width: auto;
 	min-height: auto;
-	margin-top: 1em;
-	margin-bottom: 1em;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 	background-color: #FFC107;
+}
+
+@media (min-width: $article-width + 2*$note-pad + $note-width/2) {
+	.offcenter {
+		margin-left: -$note-width/2;
+	}
+	
+	.card-note {
+		float: right;
+		width: $note-width;
+		margin-right: -$note-width - $note-pad;
+		padding-top: $note-pad;
+		padding-bottom: $note-pad;
+	}
 }
 
 .card-panel {

@@ -4,6 +4,8 @@ title: Installation
 step: ins
 ---
 
+<section class=offcenter>
+
 <div class="mdl-tabs mdl-js-tabs-fixed mdl-js-ripple-effect">
 	<div class="mdl-tabs__tab-bar">
 		<a href="#binary-panel" class="mdl-tabs__tab is-active">Binary</a>
@@ -12,17 +14,8 @@ step: ins
 	</div>
 	<div class="mdl-tabs__panel is-active" id=binary-panel>
 		<h3>Installing via supplied binary packages<br>(default on Windows + Mac OS X)</h3>
-		<p>We provide Windows and Mac OS X binary packages of all the needed packages. The packages can be installed for the with the following lines in an R console:</p>
-		<pre class="r mdl-shadow--2dp"><code>install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
-                 repos = c('http://irkernel.github.io/', getOption('repos')))</code></pre>
-		<div class="card-note mdl-card mdl-shadow--2dp">
-			<div class="mdl-card__title">
-				<i class="material-icons">warning</i>
-				<div class="mdl-layout-spacer"></div>
-				Important!
-				<div class="mdl-layout-spacer"></div>
-				<i class="material-icons">warning</i>
-			</div>
+		
+		<aside class="card-note mdl-card mdl-shadow--2dp">
 			<div class="mdl-card__supporting-text">
 				If this fails, search the output for something like:
 				<pre class="r mdl-shadow--2dp"><code>** testing if installed package can be loaded
@@ -34,7 +27,11 @@ Error in dyn.load(file, DLLpath = DLLpath, ...) :
 				This would mean that the R binary package of <strong>rzmq</strong> was compiled against a different version of <strong>libzmq</strong> from the one on your system.<br>
 				It can be fixed by installing from source (click the “Source” tab above)
 			</div>
-		</div>
+		</aside>
+		
+		<p>We provide Windows and Mac OS X binary packages of all the needed packages. The packages can be installed for the with the following lines in an R console:</p>
+		<pre class="r mdl-shadow--2dp"><code>install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
+                 repos = c('http://irkernel.github.io/', getOption('repos')))</code></pre>
 		<p>To update packages, you have to either add the repo to your default ones in your R startup file and update afterwards as normal:</p>
 		<pre class="r mdl-shadow--2dp"><code>r &lt;- getOption('repos')
 r$IRkernel &lt;- 'http://irkernel.github.io/'
@@ -108,7 +105,8 @@ install_github('IRkernel/IRkernel')</code></pre>
 </div>
 
 <h3>Making the kernel available to Jupyter</h3>
-<div class="card-note mdl-card mdl-shadow--2dp">
+
+<aside class="card-note mdl-card mdl-shadow--2dp">
 	<div class="mdl-card__title">
 		<i class="material-icons">warning</i>
 		<div class="mdl-layout-spacer"></div>
@@ -120,8 +118,11 @@ install_github('IRkernel/IRkernel')</code></pre>
 		On OS X, be sure to execute this in R  started from the Terminal, not the R App!<br>
 		(This is because the R app doesn’t honor <var>$PATH</var> changes in <samp>~/.bash_profile</samp>)
 	</div>
-</div>
+</aside>
+
 The kernel spec can be installed for the current user with the following line from R:
 <pre class="r mdl-shadow--2dp"><code>IRkernel::installspec()</code></pre>
 <p>To install system-wide, set <code>user</code> to False in the <code>installspec</code> command:</p>
 <pre class="r mdl-shadow--2dp"><code>IRkernel::installspec(user = FALSE)</code></pre>
+
+</section>
