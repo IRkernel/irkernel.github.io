@@ -50,6 +50,11 @@ h1 {
 	font-weight: 100;
 }
 
+.steps {
+	display: flex;
+	justify-content: space-between;
+}
+
 .step {
 	text-decoration: none;
 	text-transform: uppercase;
