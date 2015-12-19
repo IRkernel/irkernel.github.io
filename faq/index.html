@@ -1,0 +1,23 @@
+---
+layout: steps
+title: FAQ
+step: faq
+---
+
+<section class=offcenter>
+
+<h2>Installing additional packages</h3>
+<p>Currently, installing additional packages without any repo setup will fail with the following error: <q>"Error in contrib.url(repos, "source"): trying to use CRAN without setting a mirror"</q>.</p>
+<p>The default is <code>install.packages(..., repos = getOption('repos'))</code>, which evaluates to <code>install.packages(..., repos = c(CRAN = '@CRAN@'))</code></p>
+<p><code>@CRAN@</code> means “show a selector”, but IRkernel doesn’t identify as “interactive” yet, so interactive functions like popping up a repo selector doesn’t work.</p>
+<p>Therefore, you either have to call <code>install.packages(..., repos = c('https://...', ...))</code> every time, or <code>options(repos = c('https://...', ...))</code> once in your notebook (before the `install.packages`) call.</p>
+<p>You can get something automatically by doing the following at the start up the notebook/session or in your <a href="http://www.statmethods.net/interface/customizing.html"><code>.Rprofile</code></a>:</p>
+
+<pre class="r mdl-shadow--2dp"><code>
+country.code <- 'de'  # use yours
+url.pattern <- 'https://'  # use http if you want
+repo.data.frame <- subset(getCRANmirrors(), CountryCode == country.code & grepl(url.pattern, URL))
+options(repos = repo.data.frame$URL)
+</code></pre>
+
+</section>
