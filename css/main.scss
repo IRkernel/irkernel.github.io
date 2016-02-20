@@ -50,17 +50,43 @@ h1 {
 	font-weight: 100;
 }
 
-.steps {
-	display: flex;
-	justify-content: space-between;
-}
+$arrow-width: 4px;
 
-.step {
-	text-decoration: none;
-	text-transform: uppercase;
-	height: 56px;
-	white-space: nowrap;
-	overflow: visible;
+.steps {
+	margin: 1em 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	
+	.step {
+		text-decoration: none;
+		text-transform: uppercase;
+		height: 56px;
+		white-space: nowrap;
+		overflow: visible;
+	}
+	
+	.arrow {
+		flex-grow: 1;
+		height: 2px;
+		position: relative;
+		background-color: black;
+		margin: 0 calc(1em + #{$arrow-width}) 0 1em;
+	}
+	
+	.arrow::after {
+		left: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		border-color: rgba(136, 183, 213, 0);
+		border-left-color: black;
+		border-width: $arrow-width;
+		margin-top: -$arrow-width;
+	}
 }
 
 $note-width: 30rem;
