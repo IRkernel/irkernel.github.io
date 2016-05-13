@@ -29,15 +29,12 @@ Error in dyn.load(file, DLLpath = DLLpath, ...) :
 			</div>
 		</aside>
 		
-		<p>We provide Windows and Mac OS X binary packages of all the needed packages. The packages can be installed for the with the following lines in an R console:</p>
-		<pre class="r mdl-shadow--2dp"><code>install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
-                 repos = c('http://irkernel.github.io/', getOption('repos')))</code></pre>
-		<p>To update packages, you have to either add the repo to your default ones in your R startup file and update afterwards as normal:</p>
-		<pre class="r mdl-shadow--2dp"><code>r &lt;- getOption('repos')
-r$IRkernel &lt;- 'http://irkernel.github.io/'
-options(repos = r)</code></pre>
-		<p>Or use the <code>repo</code> option to <code>update.packages()</code> directly:</p>
-		<pre class="r mdl-shadow--2dp"><code>update.packages(repos = c('http://irkernel.github.io/', getOption('repos')))</code></pre>
+		<p>We are currently in the process of submitting our packages to CRAN. Until then, you can install via devtools with the following lines in an R console:</p>
+		<pre class="r mdl-shadow--2dp"><code>install.packages(c('repr', 'pbdZMQ', 'devtools')) # repr is already on CRAN
+devtools::install_github('irkernel/IRdisplay')
+devtools::install_github('irkernel/IRkernel')
+IRkernel::installspec()</code></pre>
+		<p>To update packages which are not yet on CRAN, you have to rerun <code>devtools::install_github(...)</code> lines.</p>
 	</div>
 	<div class=mdl-tabs__panel id=source-panel>
 		<h3>Installing from source<br>(default on Linux)</h2>
