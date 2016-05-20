@@ -46,7 +46,7 @@
 		<a class=mdl-navigation__link href=https://github.com/IRkernel/repr>IRkernel/repr</a>
 	</div>
 </div>-->
-<main class=mdl-layout__content>
+<main class="mdl-layout__content{% if page.main-class %} {{ page.main-class }}{% endif %}">
 	<div class=page-content>
 		<article>
 			{{ content }}
