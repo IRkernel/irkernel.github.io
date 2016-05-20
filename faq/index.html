@@ -14,3 +14,13 @@ step: faq
 
 <h2>Why do I get kernel crashes with <output>caught segfault: invalid permissions</output>?</h2>
 <p>You probably had pbdZMQ compiled against a different R version. Try reinstalling it!
+
+<h2>Why doesn’t only the value of a cell’s last statement appear, like in IPython?</h2>
+<p>R is more of a functional language than Python (e.g. you need no <code class=r>return</code> statements), and has an explicit visibility modifier via <code class=r>invisible(value)</code>.
+<p>Examples:<pre><code class=r>'Displayed'
+{
+	'Not displayed'
+	IRdisplay::display('Displayed via the display system')
+	'Displayed, because the block evaluates to this value'
+}
+invisible('Not displayed')</code></pre>
