@@ -15,6 +15,40 @@ function MaterialTabsFixed(element) {
 	MaterialTabs.call(this, element)
 }
 
+function setTabActive(tab, ctx) {
+	var frag = tab.href.split('#')[1]
+	var panel = ctx.element_.querySelector('#' + frag)
+	ctx.resetTabState_()
+	ctx.resetPanelState_()
+	tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS)
+	panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS)
+	return frag
+}
+
+var tabCtxs = new WeakMap
+
+function loadTab() {
+	var activePanel = document.querySelector(window.location.hash)
+	if (!window.location.hash || !activePanel) return
+	
+	var tabSpine = []
+	for (var elem = activePanel; elem !== document.documentElement; elem = elem.parentElement) {
+		if (elem.classList.contains('mdl-tabs__panel')) {
+			var tab = document.querySelector('a.mdl-tabs__tab[href="#' + elem.getAttribute('id') +'"]')
+			if (tab) {
+				tabSpine.push(tab)
+			}
+		}
+	}
+	
+	console.log(tabSpine)
+	if (!tabSpine) return
+	
+	tabSpine.forEach(function(tab) {
+		setTabActive(tab, tabCtxs.get(tab))
+	})
+}
+
 MaterialTabsFixed.prototype = Object.create(MaterialTabs.prototype)
 MaterialTabsFixed.prototype.constructor = MaterialTabsFixed
 MaterialTabsFixed.prototype.initTabs_ = function() {
@@ -49,13 +83,11 @@ function MaterialTab(tab, ctx) {
 		
 		tab.addEventListener('click', function(e) {
 			e.preventDefault()
-			var href = tab.href.split('#')[1]
-			var panel = ctx.element_.querySelector('#' + href)
-			ctx.resetTabState_()
-			ctx.resetPanelState_()
-			tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS)
-			panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS)
+			var frag = setTabActive(tab, ctx)
+			window.history.pushState(frag, '', '#' + frag)
 		})
+		
+		tabCtxs.set(tab, ctx)
 	}
 }
 
@@ -70,4 +102,6 @@ componentHandler.register({
 window.addEventListener('load', function() {
 	componentHandler.downgradeElements(document.querySelectorAll('.mdl-js-ripple-effect'))
 	componentHandler.upgradeElements(document.querySelectorAll('.mdl-js-ripple-effect'))
+	
+	loadTab()
 })
