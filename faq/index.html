@@ -13,6 +13,17 @@ main-class: faq
 <p><a href="https://github.com/IRkernel/IRkernel/issues/260">We don’t and won’t support <code>%%cell magic</code></a> like <code>%%HTML</code>.
 <p>You can use <code class=r>IRdisplay::display_html()</code> and other <code>IRdisplay</code> functions instead.
 
+<h2>My browser became slow after I displayed too many data points. Help?</h2>
+<p>Due to overplotting, displaying many points will reduce the interpretability of the plots. Consider using <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/smoothScatter.html"><code class=r>smoothScatter()</code></code></a>.
+	If you use ggplot2, you’ll want <a href="http://docs.ggplot2.org/current/geom_density_2d.html"><code class=r>(stat|geom)_density_2d</code></a> or <a href="http://docs.ggplot2.org/current/geom_hex.html"><code class=r>(stat_bin|geom)_hex</code></a>.
+<p>But you can use this code to make the browser prefer PNGs to SVGs (blurry when zoomed, but faster):
+<p><pre><code class=javascript>require(['notebook/js/outputarea'], function(oa) {
+	const d_o = oa.OutputArea.display_order
+	//remove png
+	d_o.splice(d_o.indexOf('image/png'), 1)
+	//insert png before svg
+	d_o.splice(d_o.indexOf('image/svg+xml'), 0, 'image/png')
+})</code></pre>
 
 <h2>Why is some error message shown in the kernel log, not the cell output?</h2>
 <p>It’s probably a library writing to stderr on a low level. Watch <a href="https://github.com/jupyter/notebook/issues/1461">this issue</a> if it affects you.
