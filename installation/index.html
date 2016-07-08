@@ -15,20 +15,6 @@ step: ins
 	<div class="mdl-tabs__panel is-active" id=binary-panel>
 		<h3>Installing via supplied binary packages<br>(default on Windows + Mac OS X)</h3>
 		
-		<aside class="card-note mdl-card mdl-shadow--2dp">
-			<div class="mdl-card__supporting-text">
-				If this fails, search the output for something like:
-				<pre class="r mdl-shadow--2dp"><code>** testing if installed package can be loaded
-Error in dyn.load(file, DLLpath = DLLpath, ...) :
-  unable to load shared object '/Users/[you]/anaconda/lib/R/library/rzmq/libs/rzmq.so':
-  dlopen(/Users/[you]/anaconda/lib/R/library/rzmq/libs/rzmq.so, 6): Library not loaded: libzmq.5.dylib
-  Referenced from: /Users/[you]/anaconda/lib/R/library/rzmq/libs/rzmq.so
-  Reason: image not found</code></pre>
-				This would mean that the R binary package of <strong>rzmq</strong> was compiled against a different version of <strong>libzmq</strong> from the one on your system.<br>
-				It can be fixed by installing from source (click the “Source” tab above)
-			</div>
-		</aside>
-		
 		<p>We are currently in the process of submitting our packages to CRAN. Until then, you can install via devtools with the following lines in an R console:</p>
 		<pre class="r mdl-shadow--2dp"><code>install.packages(c('repr', 'pbdZMQ', 'devtools')) # repr is already on CRAN
 devtools::install_github('IRkernel/IRdisplay')
