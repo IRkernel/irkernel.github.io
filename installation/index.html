@@ -24,7 +24,7 @@ IRkernel::installspec()</code></pre>
 	<div class=mdl-tabs__panel id=source-panel>
 		<h3>Installing from source<br>(default on Linux)</h2>
 		<h4>ZMQ</h3>
-		<p>You'll need zmq development headers to compile rzmq (Click your OS):</p>
+		<p>You'll need zmq development headers to compile pbdZMQ (Click your OS):</p>
 		<div class="mdl-tabs mdl-js-tabs-fixed mdl-js-ripple-effect mdl-shadow--2dp">
 			<div class="mdl-tabs__tab-bar">
 				<a href="#linux-panel"   class=mdl-tabs__tab>Linux</a>
@@ -63,9 +63,8 @@ export LIBRARY_PATH=/opt/local/lib</code></pre></li>
 		<h4>R packages</h3>
 		<p>Start <code>R</code> in the same terminal, and proceed as below.</p>
 		<p>You can install snapshot packages and the kernel spec via</p>
-		<pre class="r mdl-shadow--2dp"><code>install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
-                 repos = c('http://irkernel.github.io/', getOption('repos')),
-                 type = 'source')</code></pre>
+		<pre class="r mdl-shadow--2dp"><code>install.packages(c('pbdZMQ', 'devtools'))
+devtools::install_github(paste0('IRkernel/', c('repr', 'IRdisplay', 'IRkernel')))</code></pre>
 		<p>To update your source installation, repeat above step.</p>
 	</div>
 	<div class=mdl-tabs__panel id=devel-panel>
