@@ -3,9 +3,12 @@
 
 import sys
 import socket
+import tarfile
 
 from pathlib import Path
 from getpass import getuser, getpass
+from shutil import copyfileobj
+from subprocess import run
 
 from packaging.version import Version
 
@@ -87,8 +90,27 @@ for repo in org.repositories():
 '''.format(repo=repo, releases='\n\t'.join('<li><a href="{r.tag_name}">{r.tag_name}: {r.name}</a><br><pre>{r.body}</pre></li>'.format(r=r) for r in releases)))
 	
 	for release in releases:
+		release_tar = repo_dir / (release.tag_name + '.tar.gz')
+		if not release_tar.is_file():
+			release_tar_url = repo.archive('tarball', str(release_tar), release.tag_name)
+		
 		release_dir = repo_dir / release.tag_name
 		release_dir.mkdir(parents=True, exist_ok=True)
+		
+		with tarfile.open(str(release_tar)) as rel_pkg:
+			tar_rd_paths = [p for p in map(Path, rel_pkg.getnames()) if p.parent.name == 'man']
+			rd_paths = [release_dir / p.name for p in tar_rd_paths]
+			for tar_rd_path, rd_path in zip(tar_rd_paths, rd_paths):
+				if not rd_path.is_file():
+					with rel_pkg.extractfile(str(tar_rd_path)) as src, rd_path.open('wb') as dst:
+						copyfileobj(src, dst)
+		
+		other_r_names = set(r.name for r in releases) - {release.name}
+		
+		html_paths = [p.with_suffix('.html') for p in rd_paths]
+		for rd_path, html_path in zip(rd_paths, html_paths):
+			run(['Rscript', str(HERE / 'convert-rd.r'), str(rd_path), str(html_path), repo.name, release.tag_name],
+				check=True)
 		
 		with (release_dir / 'index.html').open('w') as release_index:
 			release_index.write('''<!doctype html>
