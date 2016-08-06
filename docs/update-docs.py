@@ -110,17 +110,8 @@ title: {repo.name}
 					with rel_pkg.extractfile(str(tar_path)) as src, path.open('wb') as dst:
 						copyfileobj(src, dst)
 		
-		run(['Rscript', str(HERE / 'convert-rd.r'), str(package_dir), str(release_dir), release.tag_name],
+		run(['Rscript', str(HERE / 'convert-rd.r'), str(package_dir), str(release_dir)],
 			check=True)
 		
 		for pdf in HERE.glob('Rplots*.pdf'):
 			pdf.unlink()
-		
-#		with (release_dir / 'index.html').open('w') as release_index:
-#			release_index.write('''<!doctype html>
-#<meta charset="utf-8">
-#<title>{repo.name} “{r.name}” (version {r.tag_name})</title>
-#<h1>{repo.name} “{r.name}” (version {r.tag_name})</h1>
-#Documentation for <a href="{repo.html_url}">{repo.name}</a> release “<a href="{r.html_url}">{r.name}</a>”
-#<h2>Index</h2>
-#'''.format(repo=repo, r=release))

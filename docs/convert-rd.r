@@ -4,7 +4,6 @@ library(staticdocs)
 args <- commandArgs(trailingOnly = TRUE)
 package_path <- args[[1]]
 site_path <- args[[2]]
-pkg_ver <- args[[3]]
 
 make_link <- function(loc, label, pkg = NULL) {
 	if (is.null(loc$package))
