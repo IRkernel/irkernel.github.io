@@ -1,0 +1,117 @@
+---
+layout: raw
+title: Index · IRkernel 0.6
+--- 
+
+<div class="row">
+  <div class="span8">
+    <h1>Native R kernel for Jupyter <a href="https://travis-ci.org/IRkernel/IRkernel"><img src="https://travis-ci.org/IRkernel/IRkernel.svg?branch=master" alt="Build Status"/></a></h1>
+
+<p>For detailed requirements and install instructions see <a href="http://irkernel.github.io/">irkernel.github.io</a></p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li><a href="http://jupyter.org">Jupyter</a>.</li>
+<li>A current <a href="http://www.r-project.org">R installation</a>.</li>
+</ul>
+
+<h2>Installation</h2>
+
+<p>We provide Windows and Mac OS X binary packages of all the needed packages:</p>
+
+<pre><code class="r">install.packages(c(&#39;repr&#39;, &#39;IRkernel&#39;, &#39;IRdisplay&#39;),
+                 repos = c(&#39;http://irkernel.github.io/&#39;, getOption(&#39;repos&#39;)))
+IRkernel::installspec()
+</code></pre>
+
+<p>Per default <code>IRkernel::installspec()</code> will install a kernel with the name “ir” and a
+display name of “R”. Multiple calls will overwrite the kernel with a kernel spec pointing to the last
+R interpreter you called that commands from. You can install kernels for multiple versions of R
+by supplying a <code>name</code> and <code>displayname</code> argument to the <code>installspec()</code> call (You still need to
+install these packages in all interpreters you want to run as a jupyter kernel!):</p>
+
+<pre><code class="r"># in R 3.2
+IRkernel::installspec(name = &#39;ir32&#39;, displayname = &#39;R 3.2&#39;)
+# in R 3.1
+IRkernel::installspec(name = &#39;ir31&#39;, displayname = &#39;R 3.1&#39;)
+</code></pre>
+
+<p>Now both R versions are available as an R kernel in the notebook.</p>
+
+<h3>If you encounter problems during installation</h3>
+
+<ol>
+<li>Have a look at the <a href="http://irkernel.github.io/installation/">full installation instructions</a>!</li>
+<li><a href="https://github.com/IRkernel/IRkernel/issues?utf8=%E2%9C%93&amp;q=is%3Aissue">Search the existing open and closed issues</a>.</li>
+<li>If you are sure that this is a new problem, <a href="https://github.com/IRkernel/IRkernel/issues/new">file an issue</a>.</li>
+</ol>
+
+<h2>Running the notebook</h2>
+
+<p>If you have Jupyter installed, you can create a notebook using IRkernel from the dropdown menu.</p>
+
+<p>You can also start other interfaces with an R kernel:</p>
+
+<pre><code class="bash"># “ir” is the kernel name installed by the above &#39;IRkernel::installspec()&#39;
+# change if you used a different name!
+jupyter qtconsole --kernel=ir
+jupyter console --kernel=ir
+</code></pre>
+
+<h2>Run in a Docker container</h2>
+
+<p>If you have a Docker daemon running, e.g. reachable on localhost, start a container with:</p>
+
+<pre><code class="bash">git clone https://github.com/IRkernel/IRkernel.git
+cd IRkernel
+docker build -t irkernel .
+cd &lt;path to your notebooks&gt;
+docker run -itp 8888:8888 -v $(pwd):/notebooks/ irkernel
+</code></pre>
+
+<p>In your browser open the URL <a href="http://localhost:8888/">http://localhost:8888/</a>. All notebooks from your session will be saved in the current directory.</p>
+
+<p>On other platforms without docker, this can be started using <code>docker-machine</code> by replacing “localhost” with an IP from <code>docker-machine ip &lt;MACHINE&gt;</code>. With the deprecated <code>boot2docker</code>, this IP will be <code>boot2docker ip</code>.</p>
+
+
+    <h2>Help topics</h2>
+
+    <h3></h3>
+    
+    
+    <ul class="index">
+        
+      <li>
+        <code><a href="installspec.html">installspec</a></code><br />Install the kernelspec to tell Jupyter (or IPython ≥ 3) about IRkernel.</li>
+            
+      <li>
+        <code><a href="IRkernel.html">IRkernel</a></code>(IRkernel-package)<br />An R kernel for Jupyter.</li>
+            
+      <li>
+        <code><a href="Kernel-class.html">Kernel-class</a></code>(Kernel)<br />The kernel</li>
+            
+      <li>
+        <code><a href="main.html">main</a></code><br />Initialise and run the kernel</li>
+    
+    </ul>
+  </div>
+  
+  <div class="span3 offset1">
+        
+    <h2>Dependencies</h2>
+    <ul>
+      
+      <li><strong>Imports</strong>: repr, methods, evaluate, IRdisplay, pbdZMQ, jsonlite, uuid, digest</li>
+      
+      
+    </ul>
+    <h2>Authors</h2>
+    <ul>
+      <li><a href="mailto:thomas@kluyver.me.uk">Thomas Kluyver</a> [aut, cre]</li>
+      <li><a href="mailto:flying-sheep@web.de">Philipp A.</a> [aut]</li>
+      <li><a href="mailto:karthik.ram@gmail.com">Karthik Ram</a> [aut]</li>
+    </ul>
+
+  </div>
+</div>

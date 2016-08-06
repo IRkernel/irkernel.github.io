@@ -1,0 +1,54 @@
+---
+layout: raw
+title: display_&lt;text&gt; · IRdisplay 0.4.4
+--- 
+
+<h1>Display a specific textual output</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>display_json(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL)</div>
+<div>display_javascript(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL)</div>
+<div>display_html(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL)</div>
+<div>display_markdown(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL)</div>
+<div>display_latex(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>data</dt>
+      <dd>The code or markup content as a <code><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/character.html">character</a></code> vector</dd>
+      <dt>file</dt>
+      <dd>The path to a file or a <code><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/connections.html">connection</a></code> containing the content</dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>Either <code>data</code> or <code>file</code> must be passed.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## Not run: ## (Run inside of an IRkernel)
+# display_text(&#39;Just text&#39;)
+# display_markdown(&#39;[MD](http://commonmark.org) *formatted*&#39;)
+# display_javascript(&#39;execute(this)&#39;)## End(Not run)
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>display_&lt;text&gt;</li><li>display_html</li><li>display_javascript</li><li>display_json</li><li>display_latex</li><li>display_markdown</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href="display_-less-than-image-greater-than.html">display_<image></a></code>
+
+        
+  </div>
+</div>

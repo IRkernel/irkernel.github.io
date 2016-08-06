@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
 <head>
+<meta charset=utf-8>
 <title>
 	{% if page.title %} {{ page.title }} · {% endif %} IRkernel
 </title>
-<meta charset=utf-8>
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel=icon href=/images/irkernel-logo.svg type=image/svg+xml>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/octicons/2.2.2/octicons.min.css></link>
@@ -17,12 +17,22 @@
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js></script>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/languages/r.min.js></script>
 <script src="{{site.baseurl}}/js/main.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		processEscapes: true,
+	}
+})
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--overlay-drawer-button">
 <header class=mdl-layout__header>
 	<div class=mdl-layout__header-row>
 		<div class=mdl-layout-spacer></div>
 		<a href="{{site.baseurl}}/" class="mdl-layout-title mdl-navigation__link">IRkernel</a>
+		<a href="{{site.baseurl}}/docs/" class="mdl-layout-title mdl-navigation__link">/docs <i class=material-icons>book</i></a>
 		<!--<ul class=left>
 			<li><a href=""></a></li>
 			<li><a href=""></a></li>

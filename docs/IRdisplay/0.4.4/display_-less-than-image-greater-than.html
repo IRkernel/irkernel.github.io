@@ -1,0 +1,61 @@
+---
+layout: raw
+title: display_&lt;image&gt; · IRdisplay 0.4.4
+--- 
+
+<h1>Display a specific image output</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>display_png(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL, width&nbsp;=&nbsp;NULL, height&nbsp;=&nbsp;NULL)</div>
+<div>display_jpeg(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL, width&nbsp;=&nbsp;NULL, height&nbsp;=&nbsp;NULL)</div>
+<div>display_pdf(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL, width&nbsp;=&nbsp;NULL, height&nbsp;=&nbsp;NULL)</div>
+<div>display_svg(data&nbsp;=&nbsp;NULL, file&nbsp;=&nbsp;NULL, width&nbsp;=&nbsp;NULL, height&nbsp;=&nbsp;NULL)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>data</dt>
+      <dd>The data as a <code><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/raw.html">raw</a></code> vector (<code><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/character.html">character</a></code> vector for <code>display_svg</code>)</dd>
+      <dt>file</dt>
+      <dd>The path to a file or a <code><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/connections.html">connection</a></code> containing the content</dd>
+      <dt>width</dt>
+      <dd>The width to display the image</dd>
+      <dt>height</dt>
+      <dd>The height to display the image</dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>Either <code>data</code> or <code>file</code> must be passed.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## Not run: ## (Run inside of an IRkernel)
+# display_png(file = &#39;image.png&#39;)
+# display_svg(&#39;
+# &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;-1 -1 2 2&quot;&gt;
+#   &lt;circle r=&quot;1&quot;/&gt;
+# &lt;/svg&gt;
+# &#39;)
+# display_jpeg(file = url(&#39;http://example.com/example.jpg&#39;), width = 100)## End(Not run)
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>display_&lt;image&gt;</li><li>display_jpeg</li><li>display_pdf</li><li>display_png</li><li>display_svg</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href="display_-less-than-text-greater-than.html">display_<text></a></code>
+
+        
+  </div>
+</div>

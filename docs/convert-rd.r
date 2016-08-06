@@ -1,19 +1,36 @@
-library(tools)
+library(devtools)
 library(staticdocs)
 
 args <- commandArgs(trailingOnly = TRUE)
-rd_path <- args[[1]]
-html_path <- args[[2]]
-pkg_name <- args[[3]]
-pkg_ver <- args[[4]]
+package_path <- args[[1]]
+site_path <- args[[2]]
+pkg_ver <- args[[3]]
 
-recommended_pkgs <- c(
-	'KernSmooth', 'MASS', 'Matrix', 'base', 'boot', 'class', 'cluster', 'codetools', 'compilerdatasets',
-	'foreign', 'grDevices', 'graphics', 'grid', 'lattice', 'methods', 'mgcv', 'nlme', 'nnet', 'parallel',
-	'rcompgen', 'rpart', 'spatial', 'splines', 'stats', 'stats4', 'survival', 'tcltk', 'tools', 'utils')
-base_url <- 'https://stat.ethz.ch/R-manual/R-devel/library'
+make_link <- function(loc, label, pkg = NULL) {
+	if (is.null(loc$package))
+		sprintf('<a href="%s">%s</a>', loc$file, label)
+	else #if (loc$package %in% staticdocs:::builtin_packages)
+		sprintf('<a href="https://stat.ethz.ch/R-manual/R-devel/library/%s/html/%s.html">%s</a>', loc$package, loc$topic, label)
+}
+sd_env <- environment(as.sd_package)
+unlockBinding('make_link', sd_env)
+assign('make_link', make_link, envir = sd_env)
+lockEnvironment(sd_env)
 
-rd <- staticdocs:::cached_parse_Rd(rd_path)
-html <- staticdocs:::to_html.Rd_doc(rd)
-html <- c(html, package = pkg_name, version = pkg_ver, pagetitle = html$name)
-render_page(list(sd_path = ''), 'topic', html, html_path)
+#fix broken Authors@R code
+dcf_path <- file.path(package_path, 'DESCRIPTION')
+i <- read.dcf(dcf_path)
+if ('Authors@R' %in% colnames(i) && !grepl('^c', i[, 'Authors@R'])) {
+	colnames(i)[colnames(i) == 'Authors@R'] <- 'Authors'
+	write.dcf(i, dcf_path)
+}
+
+pkg <- as.sd_package(package_path, site_path, TRUE, '_templates')
+load_all(pkg)
+
+pkg$topics    <- staticdocs:::build_topics(pkg)
+pkg$vignettes <- staticdocs:::build_vignettes(pkg)
+pkg$demos     <- staticdocs:::build_demos(pkg)
+pkg$readme    <- staticdocs:::readme(pkg)
+
+staticdocs:::build_index(pkg)

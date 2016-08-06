@@ -1,0 +1,58 @@
+---
+layout: raw
+title: display · IRdisplay 0.4
+--- 
+
+<h1>Create and use multiple available reprs</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>display(obj)</div>
+<div>prepare_mimebundle(obj, mimetypes&nbsp;=&nbsp;getOption("jupyter.display_mimetypes"), metadata&nbsp;=&nbsp;NULL, error_handler&nbsp;=&nbsp;stop)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>obj</dt>
+      <dd>The object to create representations for</dd>
+      <dt>mimetypes</dt>
+      <dd>Mimetypes to create reprs for</dd>
+      <dt>metadata</dt>
+      <dd>Metadata to attach to the result (can be expanded by additional metadata)</dd>
+      <dt>error_handler</dt>
+      <dd>Function used when errors in individual reprs occur</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+
+      <p><dl>
+<code>prepare_mimebundle</code> returns a list with items corresponding to the parameters of <code><a href="publish_mimebundle.html">publish_mimebundle</a></code> (<code>data</code> and <code>metadata</code>)
+</dl></p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>Both functions create a mimebundle for multiple reprs.
+<code>display</code> proceeds to publish it using <code><a href="publish_mimebundle.html">publish_mimebundle</a></code>.
+<code>prepare_mimebundle</code> returns it (see <em>Value</em> for details)</p>
+  
+    </div>
+      </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>display</li><li>prepare_mimebundle</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href="publish_mimebundle.html">publish_mimebundle</a></code>
+
+        
+  </div>
+</div>

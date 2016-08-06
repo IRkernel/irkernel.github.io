@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# http://github3py.readthedocs.io/en/master/
+# if your login username doesn’t equal your github one,
+# set the LOGNAME environment variable
 
 import sys
 import socket
@@ -17,10 +18,12 @@ from appdirs import user_cache_dir
 from github3 import authorize, login
 from github3.exceptions import UnprocessableEntity
 
+
 APPNAME = 'IRkernel docs downloader'
 CREDENTIALS_FILE = Path(user_cache_dir(APPNAME, 'Philipp A.')) / 'github-api.token'
 HERE = Path(__file__).parent
 
+# http://github3py.readthedocs.io/en/master/
 def create_token():
 	user = getuser()
 	password = ''
@@ -80,10 +83,10 @@ for repo in org.repositories():
 	
 	releases = sorted(list(repo.releases()), key=lambda r: Version(r.tag_name), reverse=True)
 	with (repo_dir / 'index.html').open('w') as repo_index:
-		repo_index.write('''<!doctype html>
-<meta charset="utf-8">
-<title>{repo.name}</title>
-<h1>{repo.name}</h1>
+		repo_index.write('''---
+layout: default
+title: {repo.name}
+---
 <ul>
 	{releases}
 </ul>
@@ -95,29 +98,29 @@ for repo in org.repositories():
 			release_tar_url = repo.archive('tarball', str(release_tar), release.tag_name)
 		
 		release_dir = repo_dir / release.tag_name
-		release_dir.mkdir(parents=True, exist_ok=True)
+		package_dir = release_dir / 'package'
+		package_dir.mkdir(parents=True, exist_ok=True)
 		
 		with tarfile.open(str(release_tar)) as rel_pkg:
-			tar_rd_paths = [p for p in map(Path, rel_pkg.getnames()) if p.parent.name == 'man']
-			rd_paths = [release_dir / p.name for p in tar_rd_paths]
-			for tar_rd_path, rd_path in zip(tar_rd_paths, rd_paths):
-				if not rd_path.is_file():
-					with rel_pkg.extractfile(str(tar_rd_path)) as src, rd_path.open('wb') as dst:
+			tar_paths = [Path(i.name) for i in rel_pkg.getmembers() if not i.isdir()]
+			paths = [package_dir / Path(*p.parts[1:]) for p in tar_paths]
+			for tar_path, path in zip(tar_paths, paths):
+				if not path.is_file():
+					path.parent.mkdir(parents=True, exist_ok=True)
+					with rel_pkg.extractfile(str(tar_path)) as src, path.open('wb') as dst:
 						copyfileobj(src, dst)
 		
-		other_r_names = set(r.name for r in releases) - {release.name}
+		run(['Rscript', str(HERE / 'convert-rd.r'), str(package_dir), str(release_dir), release.tag_name],
+			check=True)
 		
-		html_paths = [p.with_suffix('.html') for p in rd_paths]
-		for rd_path, html_path in zip(rd_paths, html_paths):
-			run(['Rscript', str(HERE / 'convert-rd.r'), str(rd_path), str(html_path), repo.name, release.tag_name],
-				check=True)
+		for pdf in HERE.glob('Rplots*.pdf'):
+			pdf.unlink()
 		
-		with (release_dir / 'index.html').open('w') as release_index:
-			release_index.write('''<!doctype html>
-<meta charset="utf-8">
-<title>{repo.name} “{r.name}” (version {r.tag_name})</title>
-<h1>{repo.name} “{r.name}” (version {r.tag_name})</h1>
-Documentation for <a href="{repo.html_url}">{repo.name}</a> release “<a href="{r.html_url}">{r.name}</a>”
-<h2>Index</h2>
-TODO
-'''.format(repo=repo, r=release))
+#		with (release_dir / 'index.html').open('w') as release_index:
+#			release_index.write('''<!doctype html>
+#<meta charset="utf-8">
+#<title>{repo.name} “{r.name}” (version {r.tag_name})</title>
+#<h1>{repo.name} “{r.name}” (version {r.tag_name})</h1>
+#Documentation for <a href="{repo.html_url}">{repo.name}</a> release “<a href="{r.html_url}">{r.name}</a>”
+#<h2>Index</h2>
+#'''.format(repo=repo, r=release))

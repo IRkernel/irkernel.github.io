@@ -1,0 +1,85 @@
+---
+layout: raw
+title: repr_*.recordedplot · repr 0.8
+--- 
+
+<h1>Plot representations</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>"repr_text"(obj, ...)</div>
+<div>"repr_png"(obj, width&nbsp;=&nbsp;getOption("repr.plot.width"), height&nbsp;=&nbsp;getOption("repr.plot.height"), bg&nbsp;=&nbsp;getOption("repr.plot.bg"), pointsize&nbsp;=&nbsp;getOption("repr.plot.pointsize"), antialias&nbsp;=&nbsp;getOption("repr.plot.antialias"), res&nbsp;=&nbsp;getOption("repr.plot.res"), ...)</div>
+<div>"repr_jpg"(obj, width&nbsp;=&nbsp;getOption("repr.plot.width"), height&nbsp;=&nbsp;getOption("repr.plot.height"), bg&nbsp;=&nbsp;getOption("repr.plot.bg"), pointsize&nbsp;=&nbsp;getOption("repr.plot.pointsize"), antialias&nbsp;=&nbsp;getOption("repr.plot.antialias"), res&nbsp;=&nbsp;getOption("repr.plot.res"), quality&nbsp;=&nbsp;getOption("repr.plot.quality"), ...)</div>
+<div>"repr_svg"(obj, width&nbsp;=&nbsp;getOption("repr.plot.width"), height&nbsp;=&nbsp;getOption("repr.plot.height"), bg&nbsp;=&nbsp;getOption("repr.plot.bg"), pointsize&nbsp;=&nbsp;getOption("repr.plot.pointsize"), antialias&nbsp;=&nbsp;getOption("repr.plot.antialias"), family&nbsp;=&nbsp;getOption("repr.plot.family"), ...)</div>
+<div>"repr_pdf"(obj, width&nbsp;=&nbsp;getOption("repr.plot.width"), height&nbsp;=&nbsp;getOption("repr.plot.height"), bg&nbsp;=&nbsp;getOption("repr.plot.bg"), pointsize&nbsp;=&nbsp;getOption("repr.plot.pointsize"), antialias&nbsp;=&nbsp;getOption("repr.plot.antialias"), family&nbsp;=&nbsp;getOption("repr.plot.family"), ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>obj</dt>
+      <dd>The plot to create a representation for</dd>
+      <dt>...</dt>
+      <dd>ignored</dd>
+      <dt>width</dt>
+      <dd>Plot area width in inches (default: 7)</dd>
+      <dt>height</dt>
+      <dd>Plot area height in inches (default: 7)</dd>
+      <dt>bg</dt>
+      <dd>Background color (default: white)</dd>
+      <dt>pointsize</dt>
+      <dd>Text height in pt (default: 12)</dd>
+      <dt>antialias</dt>
+      <dd>Which kind of antialiasing to use for for lines and text? 'gray', 'subpixel' or 'none'? (default: gray)</dd>
+      <dt>res</dt>
+      <dd>For PNG and JPEG, specifies the PPI for rasterization (default: 120)</dd>
+      <dt>quality</dt>
+      <dd>For JPEG, determines the compression quality in % (default: 90)</dd>
+      <dt>family</dt>
+      <dd>Font family for SVG and PDF. 'sans', 'serif', 'mono' or a specific one (default: sans)</dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p><code>repr_text.recordedplot</code> only returns a small info string containing the title (if any)
+while the others return a character vector (SVG) a raw vector (the rest) containing the image data.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+
+      <p>All parameters can also be specified using the eponymous <code>repr.plot.*</code> <a href="repr-options.html">repr-options</a>.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>dev.new()
+dev.control(displaylist = &#39;enable&#39;)
+plot(sqrt, main = &#39;Square root&#39;)
+</div>
+<p><img src='repr_-times-.recordedplot-2.png' alt='' width='540' height='400' /></p>
+<div class='input'>p &lt;- recordPlot()
+dev.off()
+</div>
+<div class='output'>pdf 
+  2 
+</div>
+<div class='input'>
+repr_text(p)
+</div>
+<div class='output'>[1] &quot;Plot with title “Square root”&quot;
+</div>
+<div class='input'></div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>repr_*.recordedplot</li><li>repr_jpg.recordedplot</li><li>repr_pdf.recordedplot</li><li>repr_png.recordedplot</li><li>repr_svg.recordedplot</li><li>repr_text.recordedplot</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>

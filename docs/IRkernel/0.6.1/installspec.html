@@ -1,0 +1,49 @@
+---
+layout: raw
+title: installspec · IRkernel 0.6
+--- 
+
+<h1>Install the kernelspec to tell Jupyter (or IPython ≥ 3) about IRkernel.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>installspec(user&nbsp;=&nbsp;TRUE, name&nbsp;=&nbsp;"ir", displayname&nbsp;=&nbsp;"R")</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>user</dt>
+      <dd>Install into user directory (~/.jupyter or ~/.ipython) or globally?</dd>
+      <dt>name</dt>
+      <dd>The name of the kernel (default "ir")</dd>
+      <dt>displayname</dt>
+      <dd>The name which is displayed in the notebook (default: "R")</dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>Will use jupyter and its config directory if available, but fall back to ipython if not.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+
+      <p>This can be called multiple times for different R interpreter, but you have to give a
+different name (and displayname to see a difference in the notebook UI). If the same
+name is give, it will overwrite older versions of the kernel spec with that name!</p>
+  
+    </div>
+      </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>installspec</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>

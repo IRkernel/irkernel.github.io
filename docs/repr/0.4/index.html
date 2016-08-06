@@ -1,0 +1,114 @@
+---
+layout: raw
+title: Index · repr 0.4
+--- 
+
+<div class="row">
+  <div class="span8">
+    <h1>repr</h1>
+
+<p>String and byte representations for all kinds of R objects.</p>
+
+<p>This package has several generic functions to create all mimetypes that <a href="http://jupyter.org/">Jupyter</a> knows about, but is totally independent of it.</p>
+
+<p>It is intended to be the basis of several packages that need to create rich text and graphics from R objects, such as the Jupyter <a href="https://github.com/IRkernel/IRkernel">IRkernel</a>, <a href="http://yihui.name/knitr/">knitr</a>, and others, such as a future more powerful replacement for <code>R CMD Rd2pdf</code>.</p>
+
+<h2>Exports</h2>
+
+<p><code>repr</code> is a function delegating to the individual <code>repr_*</code> functions.</p>
+
+<p><code>repr_*</code>, e.g. <code>repr_text</code>, <code>repr_html</code>, and <code>repr_png</code> emit single-element character vectors or raw vectors. They have parameters also configurable via global <code>options</code>.</p>
+
+<p><code>mime2repr</code> is a list mapping all known mimetypes to <code>repr_*</code> functions, e.g. <code>mime2repr[[&#39;application/pdf&#39;]]</code> is <code>repr_pdf</code>.</p>
+
+<p><code>format2repr</code> does the same for simple format names. So <code>format2repr$markdown</code> is <code>repr_markdown</code>.</p>
+
+<h2>Imports</h2>
+
+<p>Per default, <code>repr</code> will not use any packages not part of the R distribution.</p>
+
+<p>Only if you want to use <code>repr_html.function</code> and <code>repr_latex.function</code>, and specify the parameter <code>highlight</code> or option <code>repr.function.highlight</code> to be <code>TRUE</code>, then be sure to have <a href="https://github.com/yihui/highr">highr</a> installed.</p>
+
+<h2>Formats</h2>
+
+<p>Currently, the actually emitted formats are:</p>
+
+<ul>
+<li><p>Plain text, for everything, using <code>capture.output(print(thing))</code>. This will fail if <code>print(thing)</code> plots it instead. Please report classes which do that and aren’t handled yet (such as <code>recordedplot</code>).</p></li>
+<li><p>HTML, Markdown, and LaTeX, which are emitted for everything non-graphical</p></li>
+<li><p>PNG, JPG, SVG, and PDF for everything graphical (ATM just <code>recordedplot</code>)</p></li>
+</ul>
+
+<h2>Why not Pander?</h2>
+
+<p><a href="http://rapporter.github.io/pander/">Pander</a> Is very configurable and does the same as this one, only just for Markdown. Why don’t we use it and use <a href="http://pandoc.org/">Pandoc</a> to convert to other formats like it?</p>
+
+<p>Because it just emits <a href="http://whatismarkdown.com/">Markdown</a>, which is the least semantic format available. A roundtrip through Markdown will undoubtedly create sub-par HTML and LaTeX.</p>
+
+<p>Also Pander supports only text. Plots and images are also important to represent.</p>
+
+<p>Pander is however awesome for high-quality Markdown so this project might want to depend on it.</p>
+
+
+    <h2>Help topics</h2>
+
+    <h3></h3>
+    
+    
+    <ul class="index">
+        
+      <li>
+        <code><a href="times-2repr.html">*2repr</a></code>(format2repr, mime2repr)<br />Lists mapping mime types (</li>
+            
+      <li>
+        <code><a href="repr.html">repr</a></code><br />Dynamic representation</li>
+            
+      <li>
+        <code><a href="repr_-times-.function.html">repr_*.function</a></code>(repr_html.function, repr_latex.function, repr_markdown.function)<br />Representations of functions</li>
+            
+      <li>
+        <code><a href="repr-generics.html">repr-generics</a></code>(repr_html, repr_html.default, repr_javascript, repr_javascript.default, repr_jpg, repr_jpg.default, repr_json, repr_json.default, repr_latex, repr_latex.default, repr_markdown, repr_markdown.default, repr_pdf, repr_pdf.default, repr_png, repr_png.default, repr_svg, repr_svg.default)<br />Representations for specific formats</li>
+            
+      <li>
+        <code><a href="repr_-times-.help_files_with_topic.html">repr_*.help_files_with_topic</a></code>(repr_html.help_files_with_topic, repr_latex.help_files_with_topic, repr_text.help_files_with_topic)<br />Representations of help</li>
+            
+      <li>
+        <code><a href="repr_-times-.list.html">repr_*.list</a></code>(repr_html.list, repr_latex.list, repr_markdown.list)<br />Representations of lists</li>
+            
+      <li>
+        <code><a href="repr_-times-.matrix-slash-data.frame.html">repr_*.matrix/data.frame</a></code>(repr_html.data.frame, repr_html.matrix, repr_latex.data.frame, repr_latex.matrix)<br />Tabular data representations</li>
+            
+      <li>
+        <code><a href="repr-options.html">repr-options</a></code><br />These options are used to control the behavior of repr when not calling it directly.</li>
+            
+      <li>
+        <code><a href="repr-package.html">repr-package</a></code><br />The repr package</li>
+            
+      <li>
+        <code><a href="repr_-times-.recordedplot.html">repr_*.recordedplot</a></code>(repr_jpg.recordedplot, repr_pdf.recordedplot, repr_png.recordedplot, repr_svg.recordedplot, repr_text.recordedplot)<br />Plot representations</li>
+            
+      <li>
+        <code><a href="repr_text.html">repr_text</a></code>(repr_text.default)<br />Text representation</li>
+            
+      <li>
+        <code><a href="repr_-times-.vector.html">repr_*.vector</a></code>(repr_html.character, repr_html.factor, repr_html.integer, repr_html.logical, repr_html.numeric, repr_latex.character, repr_latex.factor, repr_latex.integer, repr_latex.logical, repr_latex.numeric, repr_markdown.character, repr_markdown.factor, repr_markdown.integer, repr_markdown.logical, repr_markdown.numeric)<br />Representations of vectors</li>
+    
+    </ul>
+  </div>
+  
+  <div class="span3 offset1">
+        
+    <h2>Dependencies</h2>
+    <ul>
+      
+      
+      <li><strong>Suggests</strong>: highr</li>
+      
+    </ul>
+    <h2>Authors</h2>
+    <ul>
+      <li>'Philipp A. <flying-sheep@web.de> [aut, cre]'</li>
+    </ul>
+
+  </div>
+</div>

@@ -1,0 +1,42 @@
+---
+layout: raw
+title: publish_mimebundle · IRdisplay 0.4
+--- 
+
+<h1>Display data by mimetype, with optional alternative representations.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>publish_mimebundle(data, metadata&nbsp;=&nbsp;NULL)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>data</dt>
+      <dd>A named list mapping mimetypes to content (<code><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/character.html">character</a></code> or <code><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/raw.html">raw</a> vectors</code>)</dd>
+      <dt>metadata</dt>
+      <dd>A named list mapping mimetypes to named lists of metadata, e.g. <code>list('image/png' = list(width = 5))</code></dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>Calls the function stored as option value of <code>jupyter.base_display_func</code>.</p>
+  
+    </div>
+      </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>publish_mimebundle</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href="display.html">prepare_mimebundle</a></code>
+
+        
+  </div>
+</div>
