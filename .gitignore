@@ -1,5 +1,8 @@
 .DS_Store
+.Rhistory
 .sass-cache
+*.Rproj
 /_site/
 /docs/**/*.tar.gz
 /docs/**/package/
+.Rproj.user

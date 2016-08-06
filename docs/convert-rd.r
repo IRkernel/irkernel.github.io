@@ -1,4 +1,5 @@
 library(devtools)
+#install_github('flying-sheep/staticdocs', ref = 'fix-src_highlight')
 library(staticdocs)
 
 args <- commandArgs(trailingOnly = TRUE)

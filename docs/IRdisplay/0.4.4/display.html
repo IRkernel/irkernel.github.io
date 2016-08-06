@@ -9,8 +9,10 @@ docindex: IRdisplay
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>display(obj)</div>
-<div>prepare_mimebundle(obj, mimetypes&nbsp;=&nbsp;getOption("jupyter.display_mimetypes"), metadata&nbsp;=&nbsp;NULL, error_handler&nbsp;=&nbsp;stop)</div></pre>
+    <pre><span class="functioncall"><a href="display.html">display</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href="display.html">prepare_mimebundle</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">mimetypes</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html">getOption</a></span><span class="keyword">(</span><span class="string">"jupyter.display_mimetypes"</span><span class="keyword">)</span><span class="keyword">,</span>
+  <span class="argument">metadata</span>&nbsp;<span class="argument">=</span>&nbsp;NULL<span class="keyword">,</span> <span class="argument">error_handler</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="symbol">stop</span><span class="keyword">)</span></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -43,17 +45,14 @@ docindex: IRdisplay
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>dev.new(); plot(sqrt); p &lt;- recordPlot(); dev.off()
-</div>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/dev.html">dev.new</a></span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.html">plot</a></span><span class="keyword">(</span><span class="symbol">sqrt</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">p</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/recordplot.html">recordPlot</a></span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/dev.html">dev.off</a></span><span class="keyword">(</span><span class="keyword">)</span></div>
 <div class='output'>pdf 
   2 
 </div>
-<div class='input'>bundle &lt;- prepare_mimebundle(p)
+<div class='input'><span class="symbol">bundle</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href="display.html">prepare_mimebundle</a></span><span class="keyword">(</span><span class="symbol">p</span><span class="keyword">)</span>
 
-## Not run: ## (Run inside of an IRkernel)
-# display(help(display))## End(Not run)
-
-</div></pre>
+<span class="comment">## Not run: ## (Run inside of an IRkernel)</span>
+<span class="comment"># display(help(display))## End(Not run)</span></div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
