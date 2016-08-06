@@ -32,7 +32,12 @@ MathJax.Hub.Config({
 	<div class=mdl-layout__header-row>
 		<div class=mdl-layout-spacer></div>
 		<a href="{{site.baseurl}}/" class="mdl-layout-title mdl-navigation__link">IRkernel</a>
-		<a href="{{site.baseurl}}/docs/" class="mdl-layout-title mdl-navigation__link">/docs <i class=material-icons>book</i></a>
+		<span class="mdl-layout-title navigation-slash">/</span>
+		<a href="{{site.baseurl}}/docs/" class="mdl-layout-title mdl-navigation__link">docs</a>
+		{% if page.docindex %}
+		<span class="mdl-layout-title navigation-slash">/</span>
+		<a href="{{site.baseurl}}/docs/{{page.docindex}}/" class="mdl-layout-title mdl-navigation__link">{{page.docindex}}</a>
+		{% endif %}
 		<!--<ul class=left>
 			<li><a href=""></a></li>
 			<li><a href=""></a></li>

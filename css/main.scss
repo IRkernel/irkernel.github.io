@@ -26,6 +26,13 @@ html {
 main, .mdl-card { display: flex }
 .mdl-card__supporting-text { flex-grow: 1 }
 
+.navigation-slash {
+	pointer-events: none;
+	width: 0;
+	position: relative;
+	left: -4px;
+}
+
 $article-width: 52rem;
 
 .page-content {

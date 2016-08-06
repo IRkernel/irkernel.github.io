@@ -86,6 +86,7 @@ for repo in org.repositories():
 		repo_index.write('''---
 layout: default
 title: {repo.name}
+docindex: {repo.name}
 ---
 <ul>
 	{releases}
