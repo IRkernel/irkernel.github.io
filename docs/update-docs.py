@@ -23,6 +23,20 @@ APPNAME = 'IRkernel docs downloader'
 CREDENTIALS_FILE = Path(user_cache_dir(APPNAME, 'Philipp A.')) / 'github-api.token'
 HERE = Path(__file__).parent
 
+REPO = '''\
+---
+layout: default
+title: {repo.name}
+docindex: {repo.name}
+---
+{releases}
+'''
+RELEASE = '''\
+* [{r.tag_name}: {r.name}]({r.tag_name})
+
+\t{changes}
+'''
+
 # http://github3py.readthedocs.io/en/master/
 def create_token():
 	user = getuser()
@@ -82,16 +96,9 @@ for repo in org.repositories():
 	repo_dir.mkdir(parents=True, exist_ok=True)
 	
 	releases = sorted(list(repo.releases()), key=lambda r: Version(r.tag_name), reverse=True)
-	with (repo_dir / 'index.html').open('w') as repo_index:
-		repo_index.write('''---
-layout: default
-title: {repo.name}
-docindex: {repo.name}
----
-<ul>
-	{releases}
-</ul>
-'''.format(repo=repo, releases='\n\t'.join('<li><a href="{r.tag_name}">{r.tag_name}: {r.name}</a><br><pre>{r.body}</pre></li>'.format(r=r) for r in releases)))
+	with (repo_dir / 'index.md').open('w') as repo_index:
+		release_list = '\n'.join(RELEASE.format(r=r, changes=r.body.replace('\n', '\n\t')) for r in releases)
+		repo_index.write(REPO.format(repo=repo, releases=release_list))
 	
 	for release in releases:
 		release_tar = repo_dir / (release.tag_name + '.tar.gz')
