@@ -32,9 +32,9 @@ docindex: {repo.name}
 {releases}
 '''
 RELEASE = '''\
-* [{r.tag_name}: {r.name}]({r.tag_name})
+## [{r.tag_name}]({r.tag_name}): {r.name}
 
-\t{changes}
+{r.body}
 '''
 
 # http://github3py.readthedocs.io/en/master/
@@ -97,7 +97,7 @@ for repo in org.repositories():
 	
 	releases = sorted(list(repo.releases()), key=lambda r: Version(r.tag_name), reverse=True)
 	with (repo_dir / 'index.md').open('w') as repo_index:
-		release_list = '\n'.join(RELEASE.format(r=r, changes=r.body.replace('\n', '\n\t')) for r in releases)
+		release_list = '\n'.join(RELEASE.format(r=r) for r in releases)
 		repo_index.write(REPO.format(repo=repo, releases=release_list))
 	
 	for release in releases:
