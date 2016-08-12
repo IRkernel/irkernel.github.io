@@ -103,7 +103,8 @@ for repo in org.repositories():
 	for release in releases:
 		release_tar = repo_dir / (release.tag_name + '.tar.gz')
 		if not release_tar.is_file():
-			release_tar_url = repo.archive('tarball', str(release_tar), release.tag_name)
+			print('downloading', release_tar)
+			repo.archive('tarball', str(release_tar), release.tag_name)
 		
 		release_dir = repo_dir / release.tag_name
 		package_dir = release_dir / 'package'
