@@ -3,6 +3,10 @@ layout: default
 title: repr
 docindex: repr
 ---
+## [0.9](0.9): CRAN release
+
+Changed the name of the list entry `getOption('repr.matrix.latex.colspec')$row.head` to `row_head`
+
 ## [0.8](0.8): Version 0.8
 
 * [#60] Avoid repr of `list`s with unrepr’able items
