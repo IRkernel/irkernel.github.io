@@ -10,7 +10,7 @@ make_link <- function(loc, label, pkg = NULL) {
 	if (is.null(loc$package))
 		sprintf('<a href="%s">%s</a>', loc$file, label)
 	else #if (loc$package %in% staticdocs:::builtin_packages)
-		sprintf('<a href="https://stat.ethz.ch/R-manual/R-devel/library/%s/html/%s.html">%s</a>', loc$package, loc$topic, label)
+		sprintf('<a href="http://www.rdocumentation.org/packages/%s/topics/%s">%s</a>', loc$package, loc$topic, label)
 }
 sd_env <- environment(as.sd_package)
 unlockBinding('make_link', sd_env)
