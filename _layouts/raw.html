@@ -37,6 +37,12 @@ MathJax.Hub.Config({
 		{% if page.docindex %}
 		<span class="mdl-layout-title navigation-slash">/</span>
 		<a href="{{site.baseurl}}/docs/{{page.docindex}}/" class="mdl-layout-title mdl-navigation__link">{{page.docindex}}</a>
+		{% if page.docversion %}
+		<span class="mdl-layout-title navigation-slash">/</span>
+		<a href="{{site.baseurl}}/docs/{{page.docindex}}/{{page.docversion}}/" class="mdl-layout-title mdl-navigation__link">{{page.docversion}}</a>
+		<span class="mdl-layout-title navigation-slash">/</span>
+		<a href="{{site.baseurl}}/docs/{{page.docindex}}/{{page.docversion}}/reference.html" class="mdl-layout-title mdl-navigation__link">reference</a>
+		{% endif %}
 		{% endif %}
 		<!--<ul class=left>
 			<li><a href=""></a></li>

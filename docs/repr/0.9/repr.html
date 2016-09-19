@@ -2,6 +2,7 @@
 layout: raw
 title: 'repr · repr 0.9'
 docindex: repr
+
 --- 
 
 <h1>Dynamic representation</h1>
@@ -16,9 +17,9 @@ docindex: repr
       <dt>obj</dt>
       <dd>The object to create a representation for</dd>
       <dt>format</dt>
-      <dd>The representation format. <code>repr_<format></code> is then called. (default: Call <a href="repr_text.html">repr_text</a>)</dd>
+      <dd>The representation format. <code>repr_&lt;format&gt;</code> is then called. (default: Call <a href="repr_text.html">repr_text</a>)</dd>
       <dt>...</dt>
-      <dd>delegated to the specific <code>repr_<format></code> function</dd>
+      <dd>delegated to the specific <code>repr_&lt;format&gt;</code> function</dd>
     </dl>
     
     <div class="Value">
@@ -26,30 +27,31 @@ docindex: repr
 
       <p><dl>
 A character or raw vector of that format or NULL if none is defined.
-Only the <code>'text'</code> format is defined for everything (via <a href="http://www.rdocumentation.org/packages/base/topics/print">print</a><code>()</code>)
+Only the <code>&#39;text&#39;</code> format is defined for everything (via <a href="http://www.rdocumentation.org/packages/base/topics/print">print</a><code>()</code>)
 </dl></p>
-  
+
     </div>
 
     <div class="Description">
       <h2>Description</h2>
 
       <p>Specify an object and a format to represent it in. Will <a href="http://www.rdocumentation.org/packages/base/topics/stop">stop</a><code>()</code> if no such format is known.</p>
-  
+
     </div>
       </div>
-  <div class="span4">
+  <div class="span4 sidebar">
     <!-- <ul>
       <li>repr</li>
     </ul>
     <ul>
       
     </ul> -->
-      
-    <h2>See also</h2>
-    
-<a href="repr_text.html">repr_text</a>, <a href="repr-generics.html">repr-generics</a>
 
-        
+    <h2>See also</h2>
+      <p><a href="repr_text.html">repr_text</a>, <a href="repr-generics.html">repr-generics</a></p>
+
+    
+
+
   </div>
 </div>

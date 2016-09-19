@@ -1,0 +1,62 @@
+---
+layout: raw
+title: 'installspec · IRkernel 0.7'
+docindex: IRkernel
+
+--- 
+
+<h1>Install the kernelspec to tell Jupyter (or IPython $\ge$ 3) about IRkernel.</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><span class="functioncall"><a href="installspec.html">installspec</a></span><span class="keyword">(</span><span class="argument">user</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="number">TRUE</span><span class="keyword">,</span> <span class="argument">name</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="string">"ir"</span><span class="keyword">,</span> <span class="argument">displayname</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="string">"R"</span><span class="keyword">)</span></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>user</dt>
+      <dd>Install into user directory (~/.jupyter or ~/.ipython) or globally?</dd>
+      <dt>name</dt>
+      <dd>The name of the kernel (default &quot;ir&quot;)</dd>
+      <dt>displayname</dt>
+      <dd>The name which is displayed in the notebook (default: &quot;R&quot;)</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+
+      <p><dl>
+Exit code of the <code>jupyter kernelspec install</code> call.
+</dl></p>
+
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>Will use jupyter and its config directory if available, but fall back to ipython if not.</p>
+
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+
+      <p>This can be called multiple times for different R interpreter, but you have to give a
+different name (and displayname to see a difference in the notebook UI). If the same
+name is give, it will overwrite older versions of the kernel spec with that name!</p>
+
+    </div>
+      </div>
+  <div class="span4 sidebar">
+    <!-- <ul>
+      <li>installspec</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+
+
+
+
+  </div>
+</div>

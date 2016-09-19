@@ -12,7 +12,7 @@ make_link <- function(loc, label, pkg = NULL) {
 	else #if (loc$package %in% staticdocs:::builtin_packages)
 		sprintf('<a href="http://www.rdocumentation.org/packages/%s/topics/%s">%s</a>', loc$package, loc$topic, label)
 }
-sd_env <- environment(as.sd_package)
+sd_env <- environment(render_page)
 unlockBinding('make_link', sd_env)
 assign('make_link', make_link, envir = sd_env)
 lockEnvironment(sd_env)
@@ -25,8 +25,15 @@ if ('Authors@R' %in% colnames(i) && !grepl('^c', i[, 'Authors@R'])) {
 	write.dcf(i, dcf_path)
 }
 
-pkg <- as.sd_package(package_path, site_path, TRUE, '_templates')
+pkg <- staticdocs:::as.sd_package(package_path)
 load_all(pkg)
+
+pkg$sd_path        <- site_path
+pkg$site_path      <- site_path
+pkg$examples       <- TRUE
+pkg$templates_path <- '_templates'
+pkg$run_dont_run   <- FALSE
+pkg$mathjax        <- TRUE
 
 pkg$topics    <- staticdocs:::build_topics(pkg)
 pkg$vignettes <- staticdocs:::build_vignettes(pkg)
@@ -34,3 +41,4 @@ pkg$demos     <- staticdocs:::build_demos(pkg)
 pkg$readme    <- staticdocs:::readme(pkg)
 
 staticdocs:::build_index(pkg)
+staticdocs:::build_reference(pkg)

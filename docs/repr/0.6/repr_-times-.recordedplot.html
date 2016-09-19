@@ -2,6 +2,7 @@
 layout: raw
 title: 'repr_*.recordedplot · repr 0.6'
 docindex: repr
+
 --- 
 
 <h1>Plot representations</h1>
@@ -9,28 +10,33 @@ docindex: repr
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><span class="string">"repr_text"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
+    <pre><span class="comment"># S3 method for recordedplot</span>
+<span class="functioncall"><a href="repr_text.html">repr_text</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
 
-<span class="string">"repr_png"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">width</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.width"</span><span class="keyword">)</span><span class="keyword">,</span>
+<span class="comment"># S3 method for recordedplot</span>
+<span class="functioncall"><a href="repr-generics.html">repr_png</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">width</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.width"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">height</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.height"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">bg</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.bg"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">pointsize</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.pointsize"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">antialias</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.antialias"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">res</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.res"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
 
-<span class="string">"repr_jpg"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">width</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.width"</span><span class="keyword">)</span><span class="keyword">,</span>
+<span class="comment"># S3 method for recordedplot</span>
+<span class="functioncall"><a href="repr-generics.html">repr_jpg</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">width</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.width"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">height</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.height"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">bg</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.bg"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">pointsize</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.pointsize"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">antialias</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.antialias"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">res</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.res"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">quality</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.quality"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
 
-<span class="string">"repr_svg"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">width</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.width"</span><span class="keyword">)</span><span class="keyword">,</span>
+<span class="comment"># S3 method for recordedplot</span>
+<span class="functioncall"><a href="repr-generics.html">repr_svg</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">width</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.width"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">height</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.height"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">bg</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.bg"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">pointsize</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.pointsize"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">antialias</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.antialias"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">family</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.family"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
 
-<span class="string">"repr_pdf"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">width</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.width"</span><span class="keyword">)</span><span class="keyword">,</span>
+<span class="comment"># S3 method for recordedplot</span>
+<span class="functioncall"><a href="repr-generics.html">repr_pdf</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="argument">width</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.width"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">height</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.height"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">bg</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.bg"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">pointsize</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.pointsize"</span><span class="keyword">)</span><span class="keyword">,</span>
   <span class="argument">antialias</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.plot.antialias"</span><span class="keyword">)</span><span class="keyword">,</span>
@@ -51,13 +57,13 @@ docindex: repr
       <dt>pointsize</dt>
       <dd>Text height in pt (default: 12)</dd>
       <dt>antialias</dt>
-      <dd>Which kind of antialiasing to use for for lines and text? 'gray', 'subpixel' or 'none'? (default: gray)</dd>
+      <dd>Which kind of antialiasing to use for for lines and text? &#39;gray&#39;, &#39;subpixel&#39; or &#39;none&#39;? (default: gray)</dd>
       <dt>res</dt>
       <dd>For PNG and JPEG, specifies the PPI for rasterization (default: 120)</dd>
       <dt>quality</dt>
       <dd>For JPEG, determines the compression quality in % (default: 90)</dd>
       <dt>family</dt>
-      <dd>Font family for SVG and PDF. 'sans', 'serif', 'mono' or a specific one (default: sans)</dd>
+      <dd>Font family for SVG and PDF. &#39;sans&#39;, &#39;serif&#39;, &#39;mono&#39; or a specific one (default: sans)</dd>
     </dl>
     
     <div class="Description">
@@ -65,14 +71,14 @@ docindex: repr
 
       <p><code>repr_text.recordedplot</code> only returns a small info string containing the title (if any)
 while the others return a character vector (SVG) a raw vector (the rest) containing the image data.</p>
-  
+
     </div>
 
     <div class="Details">
       <h2>Details</h2>
 
       <p>All parameters can also be specified using the eponymous <code>repr.plot.*</code> <a href="repr-options.html">repr-options</a>.</p>
-  
+
     </div>
     
     <h2 id="examples">Examples</h2>
@@ -91,14 +97,16 @@ while the others return a character vector (SVG) a raw vector (the rest) contain
 </div>
 <div class='input'></div></pre>
   </div>
-  <div class="span4">
+  <div class="span4 sidebar">
     <!-- <ul>
       <li>repr_*.recordedplot</li><li>repr_jpg.recordedplot</li><li>repr_pdf.recordedplot</li><li>repr_png.recordedplot</li><li>repr_svg.recordedplot</li><li>repr_text.recordedplot</li>
     </ul>
     <ul>
       
     </ul> -->
-      
-        
+
+
+
+
   </div>
 </div>

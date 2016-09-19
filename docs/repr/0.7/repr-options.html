@@ -2,6 +2,7 @@
 layout: raw
 title: 'repr-options · repr 0.7'
 docindex: repr
+
 --- 
 
 <h1>repr options</h1>
@@ -15,91 +16,93 @@ docindex: repr
       <h2>Format</h2>
 
       <p>An object of class <code>list</code> of length 13.</p>
-  
+
     </div>
 
     <div class="Description">
       <h2>Description</h2>
 
-      <p>These options are used to control the behavior of repr when not calling it directly. Use <code><a href="http://www.rdocumentation.org/packages/base/topics/options">options</a>(repr.* = ...)</code> and <code><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a>('repr.*')</code> to set and get them, respectively.</p>
-  
+      <p>These options are used to control the behavior of repr when not calling it directly. Use <code><a href="http://www.rdocumentation.org/packages/base/topics/options">options</a>(repr.* = ...)</code> and <code><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a>(&#39;repr.*&#39;)</code> to set and get them, respectively.</p>
+
     </div>
 
     <div class="Details">
       <h2>Details</h2>
 
       <p>Once this package is loaded, all options are set to defaults which weren’t set beforehand.</p>
-  
+
       <p>Setting all options set to <code>NULL</code> are reset to defaults when reloading the package (or calling <code>repr:::.onload()</code>).</p>
-  
+
     </div>
 
     <div class="Options">
       <h2>Options</h2>
 
       <p></p>
-  
+
       <p><dl></p>
-  
+
       <p><dt><code>repr.plot.*</code></dt><dd>
 	Those are for representations of <code>recordedplot</code> instances:
 	<dl>
 		<dt><code>repr.plot.width</code></dt><dd>Plotting area width in inches (default: 7)</dd></p>
-  
+
       <p><dt><code>repr.plot.height</code></dt><dd>Plotting area height in inches (default: 7)</dd></p>
-  
+
       <p><dt><code>repr.plot.pointsize</code></dt><dd>Text height in pt (default: 12)</dd></p>
-  
+
       <p><dt><code>repr.plot.bg</code></dt><dd>Background color (default: white)</dd></p>
-  
-      <p><dt><code>repr.plot.antialias</code></dt><dd>Which kind of antialiasing to use for for lines and text? 'gray', 'subpixel' or 'none'? (default: gray)</dd></p>
-  
+
+      <p><dt><code>repr.plot.antialias</code></dt><dd>Which kind of antialiasing to use for for lines and text? &#39;gray&#39;, &#39;subpixel&#39; or &#39;none&#39;? (default: gray)</dd></p>
+
       <p><dt><code>repr.plot.res</code></dt><dd>PPI for rasterization (default: 120)</dd></p>
-  
+
       <p><dt><code>repr.plot.quality</code></dt><dd>Quality of JPEG format in % (default: 90)</dd></p>
-  
-      <p><dt><code>repr.plot.family</code></dt><dd>Vector font family. 'sans', 'serif', 'mono' or a specific one (default: sans)</dd></p>
-  
+
+      <p><dt><code>repr.plot.family</code></dt><dd>Vector font family. &#39;sans&#39;, &#39;serif&#39;, &#39;mono&#39; or a specific one (default: sans)</dd></p>
+
       <p></dl></p>
-  
+
       <p></dd></p>
-  
+
       <p><dt><code>repr.vector.quote</code></dt><dd>
 	Output quotation marks for character vectors? (default: TRUE)
 </dd></p>
-  
+
       <p><dt><code>repr.matrix.max.rows</code></dt><dd>
 	How many rows to display at max. Will insert a row with vertical ellipses to show elision. (default: 60)
 </dd></p>
-  
+
       <p><dt><code>repr.matrix.max.cols</code></dt><dd>
 	How many cols to display at max. Will insert a column with horizontal ellipses to show elision. (default: 20)
 </dd></p>
-  
+
       <p><dt><code>repr.matrix.latex.colspec</code></dt><dd>
 	How to layout LaTeX tables when representing matrices or data.frames.
 	List of <code>row.head</code>, other <code>col</code>, and <code>end</code> strings.
-	<code>end</code> mainly exists for when you want a vertical line there (default: 'r|', 'l', and '')
+	<code>end</code> mainly exists for when you want a vertical line there (default: &#39;r|&#39;, &#39;l&#39;, and &#39;&#39;)
 </dd></p>
-  
+
       <p><dt><code>repr.function.highlight</code></dt><dd>
  Use the <code>highr</code> package to insert highlighting instructions into the code? Needs that package to be installed. (default: FALSE)
 </dd></p>
-  
+
       <p></dl></p>
-  
+
       <p></p>
-  
+
     </div>
       </div>
-  <div class="span4">
+  <div class="span4 sidebar">
     <!-- <ul>
       <li>repr-options</li><li>repr_option_defaults</li>
     </ul>
     <ul>
       <li>datasets</li>
     </ul> -->
-      
-        
+
+
+
+
   </div>
 </div>

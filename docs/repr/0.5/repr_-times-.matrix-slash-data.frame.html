@@ -2,6 +2,7 @@
 layout: raw
 title: 'repr_*.matrix/data.frame · repr 0.5'
 docindex: repr
+
 --- 
 
 <h1>Tabular data representations</h1>
@@ -9,19 +10,25 @@ docindex: repr
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><span class="string">"repr_html"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
+    <pre><span class="comment"># S3 method for matrix</span>
+<span class="functioncall"><a href="repr-generics.html">repr_html</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
 
-<span class="string">"repr_html"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
+<span class="comment"># S3 method for data.frame</span>
+<span class="functioncall"><a href="repr-generics.html">repr_html</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
 
-<span class="string">"repr_latex"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">,</span>
+<span class="comment"># S3 method for matrix</span>
+<span class="functioncall"><a href="repr-generics.html">repr_latex</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">,</span>
   <span class="argument">colspec</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.matrix.latex.colspec"</span><span class="keyword">)</span><span class="keyword">)</span>
 
-<span class="string">"repr_latex"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">,</span>
+<span class="comment"># S3 method for data.frame</span>
+<span class="functioncall"><a href="repr-generics.html">repr_latex</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">,</span>
   <span class="argument">colspec</span>&nbsp;<span class="argument">=</span>&nbsp;<span class="functioncall"><a href="http://www.rdocumentation.org/packages/base/topics/options">getOption</a></span><span class="keyword">(</span><span class="string">"repr.matrix.latex.colspec"</span><span class="keyword">)</span><span class="keyword">)</span>
 
-<span class="string">"repr_text"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
+<span class="comment"># S3 method for matrix</span>
+<span class="functioncall"><a href="repr_text.html">repr_text</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span>
 
-<span class="string">"repr_text"</span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span></pre>
+<span class="comment"># S3 method for data.frame</span>
+<span class="functioncall"><a href="repr_text.html">repr_text</a></span><span class="keyword">(</span><span class="symbol">obj</span><span class="keyword">,</span> <span class="symbol">...</span><span class="keyword">)</span></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -37,21 +44,22 @@ docindex: repr
       <h2>Description</h2>
 
       <p>HTML and LaTeX representations of Matrix-like objects</p>
-  
+
     </div>
       </div>
-  <div class="span4">
+  <div class="span4 sidebar">
     <!-- <ul>
       <li>repr_*.matrix/data.frame</li><li>repr_html.data.frame</li><li>repr_html.matrix</li><li>repr_latex.data.frame</li><li>repr_latex.matrix</li><li>repr_text.data.frame</li><li>repr_text.matrix</li>
     </ul>
     <ul>
       
     </ul> -->
-      
-    <h2>See also</h2>
-    
-<a href="repr-options.html">repr-options</a> for <code>repr.matrix.latex.colspec</code>
 
-        
+    <h2>See also</h2>
+      <p><a href="repr-options.html">repr-options</a> for <code>repr.matrix.latex.colspec</code></p>
+
+    
+
+
   </div>
 </div>

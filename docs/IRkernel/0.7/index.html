@@ -1,0 +1,94 @@
+---
+layout: raw
+title: 'Home · IRkernel 0.7'
+docindex: IRkernel
+docversion: 0.7
+--- 
+
+<div class="row">
+  <div class="span8">
+    <h1>Native R kernel for Jupyter <a href="https://travis-ci.org/IRkernel/IRkernel"><img src="https://travis-ci.org/IRkernel/IRkernel.svg?branch=master" alt="Build Status"/></a></h1>
+
+<p>For detailed requirements and install instructions see <a href="http://irkernel.github.io/">irkernel.github.io</a></p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li><a href="http://jupyter.org">Jupyter</a>.</li>
+<li>A current <a href="http://www.r-project.org">R installation</a>.</li>
+</ul>
+
+<h2>Installation</h2>
+
+<p>We will soon submit the IRkernel package to CRAN. Until then, you can install it via the <code>devtools</code> package:</p>
+
+<pre><code class="R">install.packages(c(&#39;repr&#39;, &#39;IRdisplay&#39;, &#39;crayon&#39;, &#39;pbdZMQ&#39;, &#39;devtools&#39;))
+devtools::install_github(&#39;IRkernel/IRkernel&#39;)
+IRkernel::installspec()  # to register the kernel in the current R installation
+</code></pre>
+
+<p>Per default <code>IRkernel::installspec()</code> will install a kernel with the name “ir” and a
+display name of “R”. Multiple calls will overwrite the kernel with a kernel spec pointing to the last
+R interpreter you called that commands from. You can install kernels for multiple versions of R
+by supplying a <code>name</code> and <code>displayname</code> argument to the <code>installspec()</code> call (You still need to
+install these packages in all interpreters you want to run as a jupyter kernel!):</p>
+
+<pre><code class="r"># in R 3.3
+IRkernel::installspec(name = &#39;ir33&#39;, displayname = &#39;R 3.3&#39;)
+# in R 3.2
+IRkernel::installspec(name = &#39;ir32&#39;, displayname = &#39;R 3.2&#39;)
+</code></pre>
+
+<p>Now both R versions are available as an R kernel in the notebook.</p>
+
+<h3>If you encounter problems during installation</h3>
+
+<ol>
+<li>Have a look at the <a href="http://irkernel.github.io/installation/">full installation instructions</a>!</li>
+<li><a href="https://github.com/IRkernel/IRkernel/issues?utf8=%E2%9C%93&amp;q=is%3Aissue">Search the existing open and closed issues</a>.</li>
+<li>If you are sure that this is a new problem, <a href="https://github.com/IRkernel/IRkernel/issues/new">file an issue</a>.</li>
+</ol>
+
+<h2>Running the notebook</h2>
+
+<p>If you have Jupyter installed, you can create a notebook using IRkernel from the dropdown menu.</p>
+
+<p>You can also start other interfaces with an R kernel:</p>
+
+<pre><code class="bash"># “ir” is the kernel name installed by the above `IRkernel::installspec()`
+# change if you used a different name!
+jupyter qtconsole --kernel=ir
+jupyter console --kernel=ir
+</code></pre>
+
+<h2>Run a stable release in a Docker container</h2>
+
+<p>Refer to the <a href="https://github.com/jupyter/docker-stacks/tree/master/r-notebook">jupyter/docker-stacks r-notebook</a> repository</p>
+
+<p>If you have a Docker daemon running, e.g. reachable on localhost, start a container with:</p>
+
+<pre><code class="bash">docker run -d -p 8888:8888 jupyter/r-notebook
+</code></pre>
+
+<p>In your browser open the URL <a href="http://localhost:8888/">http://localhost:8888/</a>. All notebooks from your session will be saved in the current directory.</p>
+
+<p>On other platforms without docker, this can be started using <code>docker-machine</code> by replacing “localhost” with an IP from <code>docker-machine ip &lt;MACHINE&gt;</code>. With the deprecated <code>boot2docker</code>, this IP will be <code>boot2docker ip</code>.</p>
+
+<h2>Develop and run from source in a Docker container</h2>
+
+<pre><code class="bash">make docker_dev_image #builds dev image and installs IRkernel dependencies from github
+make docker_dev #mounts source, installs, and runs Jupyter notebook
+</code></pre>
+
+  </div>
+
+  <div class="span3 offset1 sidebar">
+        <h2>Authors</h2>
+    <ul>
+      <li><a href='mailto:thomas@kluyver.me.uk'>Thomas Kluyver</a> [aut, cph]</li>
+      <li><a href='mailto:phil.angerer@gmail.com'>Philipp Angerer</a> [aut, cph, cre]</li>
+      <li><a href='mailto:jasc@gmx.net'>Jan Schulz</a> [aut, cph]</li>
+      <li><a href='mailto:karthik.ram@gmail.com'>Karthik Ram</a> [aut, cph]</li>
+    </ul>
+  </div>
+</div>
