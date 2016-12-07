@@ -15,6 +15,7 @@ output {
 img.logo {
 	max-width: 175px;
 	vertical-align: middle;
+    margin-bottom: 24px;
 }
 
 /*layout fix*/
@@ -46,9 +47,6 @@ $article-width: 52rem;
 	width: 90%;
 }
 
-.offcenter {
-	max-width: 100%;
-}
 
 /*hljs*/
 .hljs {
@@ -124,9 +122,6 @@ $note-pad: 1rem;
 }
 
 @media (min-width: $article-width + 2*$note-pad + $note-width/2) {
-	.offcenter {
-		margin-left: -$note-width/2;
-	}
 	
 	.card-note {
 		float: right;

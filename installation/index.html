@@ -1,11 +1,15 @@
 ---
-layout: steps
+layout: default
 title: Installation
-step: ins
 ---
 
 <section class=offcenter>
-
+<div class="mdl-card mdl-cell mdl-cell--12-col">
+    <a href="{{site.baseurl}}/running">
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+  Continue to Running
+</button>
+    </a>
 <div class="mdl-tabs mdl-js-tabs-fixed mdl-js-ripple-effect">
 	<div class="mdl-tabs__tab-bar">
 		<a href="#binary-panel" class="mdl-tabs__tab is-active">Binary</a>
@@ -105,5 +109,6 @@ install_github('IRkernel/IRkernel')</code></pre>
 <pre class="r mdl-shadow--2dp"><code>IRkernel::installspec()</code></pre>
 <p>To install system-wide, set <code>user</code> to False in the <code>installspec</code> command:</p>
 <pre class="r mdl-shadow--2dp"><code>IRkernel::installspec(user = FALSE)</code></pre>
+    </div>
 
 </section>
