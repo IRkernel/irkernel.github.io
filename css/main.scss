@@ -9,7 +9,7 @@ output {
 
 /* a bit more than “small” */
 img.logo {
-	max-width: 20%;
+	max-width: 25%;
 	vertical-align: middle;
 }
 
@@ -60,10 +60,6 @@ pre > code.hljs {
 h1, h2, h3, h4, h5, h6 {
 	color: #673AB7;
 	font-weight: 300;
-}
-
-h1 {
-	font-weight: 100;
 }
 
 $arrow-width: 4px;
@@ -149,4 +145,14 @@ figure.mdl-card {
 
 figure.mdl-card > .mdl-card__media {
 	max-width:100%;
+}
+.nav-icon {
+    padding-right: 4px;
+}
+.mobile-nav-icon {
+    padding-right: 8px;
+}
+.seperator {
+    border: 1px solid #E0E0E0;
+    margin: 8px 0px;
 }

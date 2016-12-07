@@ -28,7 +28,54 @@ MathJax.Hub.Config({
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--overlay-drawer-button">
-<header class=mdl-layout__header>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title"><a href="{{site.baseurl}}/" class="mdl-layout-title mdl-navigation__link">IRkernel Documentation</a></span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href={{site.baseurl}}/requirements/><i class="material-icons nav-icon">assessment</i>Requirements</a>
+        <a class="mdl-navigation__link" href={{site.baseurl}}/installation/><i class="material-icons nav-icon">file_download</i>Installation</a>
+        <a class="mdl-navigation__link" href={{site.baseurl}}/running/><i class="material-icons nav-icon">launch</i>Running</a>
+        <a class="mdl-navigation__link" href={{site.baseurl}}/faq/><i class="material-icons nav-icon">question_answer</i>FAQ</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">IRkernel Docs</span>
+    <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href=""><i class="material-icons mobile-nav-icon">assessment</i>Requirements</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons mobile-nav-icon">file_download</i>Installation</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons mobile-nav-icon">launch</i>Running</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons mobile-nav-icon">question_answer</i>FAQ</a>
+        <span class="seperator"></span>
+        <a class="mdl-navigation__link" href=""><i class="material-icons mobile-nav-icon">question_answer</i>IRkernel on GitHub</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons mobile-nav-icon">question_answer</i>IRDisplay on GitHub</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons mobile-nav-icon">question_answer</i>repr on GitHub</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content{% if page.main-class %} {{ page.main-class }}{% endif %}">
+    <div class=page-content>
+		<article>
+			{{ content }}
+		</article>
+	</div>
+	<footer class=mdl-mini-footer>
+		<div class=mdl-mini-footer--left-section>
+			<div class=mdl-logo>IRkernel</div>
+			<ul class=mdl-mini-footer--link-list>
+				<li><a href=https://github.com/takluyver>by Thomas Kluyver</a></li>
+				<li><a href=https://github.com/flying-sheep>and Philipp A.</a></li>
+				<li><a href=http://www.getmdl.io>Website powered by Material Design Lite</a></li>
+			</ul>
+		</div>
+	</footer>
+  </main>
+</div>
+<!--<header class=mdl-layout__header>
 	<div class=mdl-layout__header-row>
 		<div class=mdl-layout-spacer></div>
 		<a href="{{site.baseurl}}/" class="mdl-layout-title mdl-navigation__link">IRkernel</a>
@@ -44,10 +91,10 @@ MathJax.Hub.Config({
 		<a href="{{site.baseurl}}/docs/{{page.docindex}}/{{page.docversion}}/reference.html" class="mdl-layout-title mdl-navigation__link">reference</a>
 		{% endif %}
 		{% endif %}
-		<!--<ul class=left>
+		<ul class=left>
 			<li><a href=""></a></li>
 			<li><a href=""></a></li>
-		</ul>-->
+		</ul>
 		<div class=mdl-layout-spacer></div>
 		<nav class="mdl-navigation">
 			<a class=mdl-navigation__link href=https://github.com/IRkernel><i class="mega-octicon octicon-mark-github"></i></a>
@@ -56,7 +103,7 @@ MathJax.Hub.Config({
 			<a class=mdl-navigation__link href=https://github.com/IRkernel/repr>repr</a>
 		</nav>
 	</div>
-</header>
+</header>-->
 <!--<div class=mdl-layout__drawer>
 	<span class=mdl-layout-title>IRkernel</span>
 	<nav class=mdl-navigation>
@@ -66,22 +113,5 @@ MathJax.Hub.Config({
 		<a class=mdl-navigation__link href=https://github.com/IRkernel/repr>IRkernel/repr</a>
 	</div>
 </div>-->
-<main class="mdl-layout__content{% if page.main-class %} {{ page.main-class }}{% endif %}">
-	<div class=page-content>
-		<article>
-			{{ content }}
-		</article>
-	</div>
-	<footer class=mdl-mini-footer>
-		<div class=mdl-mini-footer--left-section>
-			<div class=mdl-logo>IRkernel</div>
-			<ul class=mdl-mini-footer--link-list>
-				<li><a href=https://github.com/takluyver>by Thomas Kluyver</a></li>
-				<li><a href=https://github.com/flying-sheep>and Philipp A.</a></li>
-				<li><a href=http://www.getmdl.io>Website powered by Material Design Lite</a></li>
-			</ul>
-		</div>
-	</footer>
-</main>
 </body>
 </html>
