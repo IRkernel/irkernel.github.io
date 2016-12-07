@@ -7,9 +7,13 @@ output {
 	font-style: italic;
 }
 
+#landing-title {
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
 /* a bit more than “small” */
 img.logo {
-	max-width: 25%;
+	max-width: 175px;
 	vertical-align: middle;
 }
 
@@ -39,7 +43,7 @@ $article-width: 52rem;
 	flex-grow: 1;
 	margin: 0 auto;
 	max-width: $article-width;
-	width: 100%;
+	width: 90%;
 }
 
 .offcenter {
@@ -155,4 +159,7 @@ figure.mdl-card > .mdl-card__media {
 .seperator {
     border: 1px solid #E0E0E0;
     margin: 8px 0px;
+}
+.mega-octicon {
+    font-size: 24px;
 }
