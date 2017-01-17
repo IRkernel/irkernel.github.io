@@ -7,9 +7,15 @@ output {
 	font-style: italic;
 }
 
+#landing-title {
+    padding-top: 8px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
 /* a bit more than “small” */
 img.logo {
-	max-width: 20%;
+    height: 150px;
+	max-width: 175px;
 	vertical-align: middle;
 }
 
@@ -39,12 +45,9 @@ $article-width: 52rem;
 	flex-grow: 1;
 	margin: 0 auto;
 	max-width: $article-width;
-	width: 100%;
+	width: 90%;
 }
 
-.offcenter {
-	max-width: 100%;
-}
 
 /*hljs*/
 .hljs {
@@ -60,10 +63,6 @@ pre > code.hljs {
 h1, h2, h3, h4, h5, h6 {
 	color: #673AB7;
 	font-weight: 300;
-}
-
-h1 {
-	font-weight: 100;
 }
 
 $arrow-width: 4px;
@@ -122,11 +121,12 @@ $note-pad: 1rem;
 	margin-bottom: 1rem;
 	background-color: #FFC107;
 }
-
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+}
 @media (min-width: $article-width + 2*$note-pad + $note-width/2) {
-	.offcenter {
-		margin-left: -$note-width/2;
-	}
 	
 	.card-note {
 		float: right;
@@ -149,4 +149,17 @@ figure.mdl-card {
 
 figure.mdl-card > .mdl-card__media {
 	max-width:100%;
+}
+.nav-icon {
+    padding-right: 4px;
+}
+.mobile-nav-icon {
+    padding-right: 8px;
+}
+.seperator {
+    border: 1px solid #E0E0E0;
+    margin: 8px 0px;
+}
+.mega-octicon {
+    font-size: 24px;
 }
