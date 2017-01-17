@@ -5,8 +5,8 @@
 <title>
 	{% if page.title %} {{ page.title }} · {% endif %} IRkernel
 </title>
-<meta name=viewport content="width=device-width, initial-scale=1">
-<link rel=icon href=/images/irkernel-logo.svg type=image/svg+xml>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/images/irkernel-logo.svg" type="image/svg+xml">
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/octicons/2.2.2/octicons.min.css></link>
 <link rel=stylesheet href=//fonts.googleapis.com/icon?family=Material+Icons></link>
 <link rel=stylesheet href=//fonts.googleapis.com/css?family=Roboto:100,300,400,700></link>
@@ -32,12 +32,12 @@ MathJax.Hub.Config({
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title"><a href="{{site.baseurl}}/" class="mdl-layout-title mdl-navigation__link">IRkernel Documentation</a></span>
+      <span class="mdl-layout-title"><a href="{{site.baseurl}}/" class="mdl-layout-title mdl-navigation__link">IRkernel</a></span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="{{site.baseurl}}/docs/"><i class="material-icons nav-icon">subject</i>Documentation</a>
+      <nav class="mdl-navigation desktop-nav">
+        <a class="mdl-navigation__link" href="{{site.baseurl}}/docs/"><i class="material-icons nav-icon">subject</i>Docs</a>
         <a class="mdl-navigation__link" href={{site.baseurl}}/requirements/><i class="material-icons nav-icon">assessment</i>Requirements</a>
         <a class="mdl-navigation__link" href={{site.baseurl}}/installation/><i class="material-icons nav-icon">file_download</i>Installation</a>
         <a class="mdl-navigation__link" href={{site.baseurl}}/running/><i class="material-icons nav-icon">launch</i>Running</a>
@@ -45,7 +45,7 @@ MathJax.Hub.Config({
       </nav>
     </div>
   </header>
-  <div class="mdl-layout__drawer">
+  <div class="mdl-layout__drawer mdl-layout--small-screen-only">
     <span class="mdl-layout-title">IRkernel Docs</span>
     <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="{{site.baseurl}}/docs/"><i class="material-icons nav-icon">subject</i>Documentation</a>

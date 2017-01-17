@@ -8,14 +8,15 @@ output {
 }
 
 #landing-title {
+    padding-top: 8px;
     margin-bottom: 12px;
     line-height: 1.2;
 }
 /* a bit more than “small” */
 img.logo {
+    height: 150px;
 	max-width: 175px;
 	vertical-align: middle;
-    margin-bottom: 24px;
 }
 
 /*layout fix*/
@@ -120,7 +121,11 @@ $note-pad: 1rem;
 	margin-bottom: 1rem;
 	background-color: #FFC107;
 }
-
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+}
 @media (min-width: $article-width + 2*$note-pad + $note-width/2) {
 	
 	.card-note {
