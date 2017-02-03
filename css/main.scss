@@ -3,6 +3,8 @@
 
 @import 'highlight';
 
+$orange: #ff6e40;
+
 output {
 	font-style: italic;
 }
@@ -12,6 +14,16 @@ output {
 	margin-bottom: 12px;
 	line-height: 1.2;
 }
+
+/* navigantion */
+body.docs         a[href$="docs/"],
+body.requirements a[href$="requirements/"],
+body.installation a[href$="installation/"],
+body.running      a[href$="running/"],
+body.faq          a[href$="faq/"] {
+	border-bottom: 2px solid $orange;
+}
+
 /* a bit more than “small” */
 img.logo {
 	height: 150px;
@@ -31,13 +43,6 @@ html {
 
 main, .mdl-card { display: flex }
 .mdl-card__supporting-text { flex-grow: 1 }
-
-.navigation-slash {
-	pointer-events: none;
-	width: 0;
-	position: relative;
-	left: -4px;
-}
 
 $article-width: 52rem;
 
@@ -66,43 +71,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 $arrow-width: 4px;
-
-.steps {
-	margin: 1em 0;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	
-	.step {
-		text-decoration: none;
-		text-transform: uppercase;
-		height: 56px;
-		white-space: nowrap;
-		overflow: visible;
-	}
-	
-	.arrow {
-		flex-grow: 1;
-		height: 2px;
-		position: relative;
-		background-color: black;
-		margin: 0 calc(1em + #{$arrow-width}) 0 1em;
-	}
-	
-	.arrow::after {
-		left: 100%;
-		top: 50%;
-		border: solid transparent;
-		content: " ";
-		height: 0;
-		width: 0;
-		position: absolute;
-		border-color: rgba(136, 183, 213, 0);
-		border-left-color: black;
-		border-width: $arrow-width;
-		margin-top: -$arrow-width;
-	}
-}
 
 $note-width: 30rem;
 $note-pad: 1rem;

@@ -27,7 +27,7 @@ MathJax.Hub.Config({
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--overlay-drawer-button">
+<body class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--overlay-drawer-button{% if page.class %} {{ page.class }}{% endif %}">
 	<header class=mdl-layout__header>
 		<div class=mdl-layout__header-row>
 			<!-- Title -->
@@ -58,7 +58,7 @@ MathJax.Hub.Config({
 			<a class=mdl-navigation__link href=https://github.com/IRkernel/repr><i class="mega-octicon octicon-mark-github mobile-nav-icon"></i>repr on GitHub</a>
 		</nav>
 	</aside>
-	<main class="mdl-layout__content{% if page.main-class %} {{ page.main-class }}{% endif %}">
+	<main class="mdl-layout__content">
 		<div class=page-content>
 			<article>
 				{{ content }}

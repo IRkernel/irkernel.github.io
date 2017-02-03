@@ -1,20 +1,29 @@
 ---
 layout: default
 title: Running the notebook
+class: running
 ---
 
 <p>If you have Jupyter installed, you can create a notebook and switch to IRkernel from the dropdown menu:</p>
+
 <figure class="mdl-card mdl-shadow--2dp">
 	<img class=mdl-card__media src="{{site.baseurl}}/images/kernel-select.png">
 </figure>
+
 <p>You can also start other intefaces with an R kernel:</p>
-<pre class="bash mdl-shadow--2dp"><code># “ir” is the kernel name installed by the above <code>IRkernel::installspec()</code>
+
+<pre class="bash mdl-shadow--2dp"><code># “ir” is the kernel name installed by the above IRkernel::installspec()
 jupyter qtconsole --kernel=ir
 jupyter console --kernel=ir</code></pre>
+
 <h3>IPython</h3>
+
 <p>What is now Jupyter was once a part of the IPython project. If your operating system doesn’t yet have Jupyter, but instead IPython version 3 packages (IPython 1 and 2 are not supported), you can substitute <code>ipython</code> for <code>jupyter</code> in above commands and it will work.</p>
+
 <a href={{site.baseurl}}/faq>
 	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 		Continue to FAQ
 	</button>
 </a>
+
+<p><!--space between button and footer--></p>
