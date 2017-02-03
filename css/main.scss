@@ -16,6 +16,7 @@ output {
 }
 
 /* navigantion */
+body.landing      a.mdl-layout-title,
 body.docs         a[href$="docs/"],
 body.requirements a[href$="requirements/"],
 body.installation a[href$="installation/"],
