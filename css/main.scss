@@ -15,14 +15,36 @@ output {
 	line-height: 1.2;
 }
 
-/* navigantion */
-body.landing      a.mdl-layout-title,
-body.docs         a[href$="docs/"],
-body.requirements a[href$="requirements/"],
-body.installation a[href$="installation/"],
-body.running      a[href$="running/"],
-body.faq          a[href$="faq/"] {
-	border-bottom: 2px solid $orange;
+/* make them independent of line height */
+.mdl-layout__header-row .mdl-navigation__link {
+	box-sizing: border-box;
+	height: 100%;
+	line-height: initial;
+	display: flex;
+	align-items: center;
+}
+
+/* navigation */
+.mdl-layout__header {
+	body.landing      & a.mdl-layout-title,
+	body.docs         & a[href$="docs/"],
+	body.requirements & a[href$="requirements/"],
+	body.installation & a[href$="installation/"],
+	body.running      & a[href$="running/"],
+	body.faq          & a[href$="faq/"] {
+		border-bottom: 3px solid $orange;
+	}
+}
+
+.mdl-layout__drawer {
+	body.landing      & a.mdl-layout-title,
+	body.docs         & a[href$="docs/"],
+	body.requirements & a[href$="requirements/"],
+	body.installation & a[href$="installation/"],
+	body.running      & a[href$="running/"],
+	body.faq          & a[href$="faq/"] {
+		border-left: 3px solid $orange;
+	}
 }
 
 /* a bit more than “small” */
