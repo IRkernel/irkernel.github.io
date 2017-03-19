@@ -21,8 +21,15 @@ class: installation
 	<div class="mdl-tabs__panel is-active" id=binary-panel>
 		<h3>1/2) Installing via supplied binary packages<br>(default on Windows + Mac OS X)</h3>
 		<p>You can install all packages using the following lines in an R console:</p>
+		The OpenSSL package needs to be built as root, the other packages can be installed as the user.
+		user$ sudo R
+		<pre class="r mdl-shadow--2dp"><code>> install.packages(c('openssl')
+		> quit()</code></pre>
+		---
+		user$ R
 		<pre class="r mdl-shadow--2dp"><code>install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
 devtools::install_github('IRkernel/IRkernel')
+> quit()
 # Don’t forget step 2/2!</code></pre>
 		<p>To update the IRkernel package, which is not yet on CRAN, you have to rerun the <code>devtools::</code> line. For the other packages, a simple <code>update.packages()</code> is sufficient.</p>
 	</div>
