@@ -23,7 +23,8 @@ APPNAME = 'IRkernel docs downloader'
 CREDENTIALS_FILE = Path(user_cache_dir(APPNAME, 'Philipp A.')) / 'github-api.token'
 HERE = Path(__file__).parent
 
-REPO = '''\
+def template_repo(repo, releases):
+	return f'''\
 ---
 layout: default
 title: {repo.name}
@@ -31,11 +32,19 @@ docindex: {repo.name}
 ---
 {releases}
 '''
-RELEASE = '''\
+
+def template_release(r):
+	return f'''\
 ## [{r.tag_name}]({r.tag_name}): {r.name}
 
 {r.body}
 '''
+
+def two_factor_callback():
+	code = ''
+	while not code:
+		code = input('Enter 2FA code: ')
+	return code
 
 # http://github3py.readthedocs.io/en/master/
 def create_token():
@@ -50,7 +59,7 @@ def create_token():
 	scopes = []
 	
 	try:
-		auth = authorize(user, password, scopes, note, note_url)
+		auth = authorize(user, password, scopes, note, note_url, two_factor_callback=two_factor_callback)
 	except UnprocessableEntity as e:
 		print(e, file=sys.stderr)
 		for err in e.errors:
@@ -70,7 +79,7 @@ def create_token():
 		print(auth.token, file=f)
 		print(auth.id, file=f)
 	
-	return login(user, password)
+	return login(token=auth.token)
 
 def auth():
 	if CREDENTIALS_FILE.is_file():
@@ -97,8 +106,8 @@ for repo in org.repositories():
 	
 	releases = sorted(list(repo.releases()), key=lambda r: Version(r.tag_name), reverse=True)
 	with (repo_dir / 'index.md').open('w') as repo_index:
-		release_list = '\n'.join(RELEASE.format(r=r) for r in releases)
-		repo_index.write(REPO.format(repo=repo, releases=release_list))
+		release_list = '\n'.join(template_release(r) for r in releases)
+		repo_index.write(template_repo(repo, release_list))
 	
 	for release in releases:
 		release_tar = repo_dir / (release.tag_name + '.tar.gz')
