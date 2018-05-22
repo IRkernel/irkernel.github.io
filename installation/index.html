@@ -38,11 +38,11 @@ devtools::install_github('IRkernel/IRkernel')
 			</div>
 			<div class="card-panel mdl-tabs__panel" id=linux-panel>
 				<h5>Ubuntu and Debian</h5>
-				<pre class="bash"><code>sudo apt-get install libzmq3-dev</code></pre>
+				<pre class="bash"><code>sudo apt-get install libzmq3-dev libcurl-openssl1.0-dev libssl-dev</code></pre>
 				<h5>Fedora</h5>
-				<pre class="bash"><code>sudo dnf install czmq-devel</code></pre>
+				<pre class="bash"><code>sudo dnf install czmq-devel libcurl-devel openssl-devel</code></pre>
 				<h5>Arch Linux</h5>
-				<pre class="bash"><code>sudo pacman -S zeromq</code></pre>
+				<pre class="bash"><code>sudo pacman -S zeromq libcurl-openssl-1.0</code></pre>
 			</div>
 			<div class="card-panel mdl-tabs__panel" id=os-x-panel>
 				<h5>Homebrew</h5>
