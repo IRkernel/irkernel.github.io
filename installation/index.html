@@ -19,10 +19,28 @@ class: installation
 		<a href="#devel-panel" class=mdl-tabs__tab>Development</a>
 	</div>
 	<div class="mdl-tabs__panel is-active" id=binary-panel>
+		<aside class="card-note mdl-card mdl-shadow--2dp">
+			<div class="mdl-card__title">
+				<i class="material-icons">warning</i>
+				<div class="mdl-layout-spacer"></div>
+				Important!
+				<div class="mdl-layout-spacer"></div>
+				<i class="material-icons">warning</i>
+			</div>
+			<div class="mdl-card__supporting-text">
+				On OS X, be sure to install the OpenSSL package as root, the other packages can be installed as the user.
+				<pre class="r mdl-shadow--2dp"><code>>
+				user$ sudo R
+				> install.packages(c('openssl')
+				> quit()</code></pre>
+			</div>
+		</aside>			
 		<h3>1/2) Installing via supplied binary packages<br>(default on Windows + Mac OS X)</h3>
 		<p>You can install all packages using the following lines in an R console:</p>
-		<pre class="r mdl-shadow--2dp"><code>install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
+		<pre class="r mdl-shadow--2dp"><code>user$ R
+		> install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
 devtools::install_github('IRkernel/IRkernel')
+> quit()
 # Don’t forget step 2/2!</code></pre>
 		<p>To update the IRkernel package, which is not yet on CRAN, you have to rerun the <code>devtools::</code> line. For the other packages, a simple <code>update.packages()</code> is sufficient.</p>
 	</div>
