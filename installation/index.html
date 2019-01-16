@@ -68,9 +68,8 @@ export LIBRARY_PATH=/opt/local/lib</code></pre></li>
 		</div>
 		<h4>R packages</h3>
 		<p>Start <code>R</code> in the same terminal, and proceed as below.</p>
-		<p>You can install snapshot packages and the kernel spec via</p>
-		<pre class="r mdl-shadow--2dp"><code>install.packages(c('crayon', 'pbdZMQ', 'devtools'))
-devtools::install_github(paste0('IRkernel/', c('repr', 'IRdisplay', 'IRkernel')))</code></pre>
+		<p>You can install the packages via</p>
+		<pre class="r mdl-shadow--2dp"><code>install.packages(c('repr', 'IRdisplay', 'IRkernel'), type = 'source')</code></pre>
 		<p>To update your source installation, repeat above step.</p>
 	</div>
 	<div class=mdl-tabs__panel id=devel-panel>
@@ -80,13 +79,13 @@ devtools::install_github(paste0('IRkernel/', c('repr', 'IRdisplay', 'IRkernel'))
 		<pre class="bash mdl-shadow--2dp"><code>sudo apt-get install libcurl4-openssl-dev</code></pre>
 		<p>Start a R session and run:</p>
 		<pre class="r mdl-shadow--2dp"><code>install.packages('devtools')
-# Need RCurl for install_github
+# We need RCurl for install_github
 install.packages('RCurl')
-library(devtools)
 # Install the packages
-install_github('IRkernel/repr')
-install_github('IRkernel/IRdisplay')
-install_github('IRkernel/IRkernel')</code></pre>
+devtools::install_github(paste0(
+    'IRkernel/',
+    c('repr', 'IRdisplay', 'IRkernel')
+))</code></pre>
 		<p>To update the git versions, repeat the <code class=r>install_github('IRkernel/...')</code> steps.</p>
 	</div>
 </div>
