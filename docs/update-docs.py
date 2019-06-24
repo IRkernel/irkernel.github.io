@@ -15,7 +15,7 @@ from packaging.version import Version
 
 from appdirs import user_cache_dir
 
-from github3 import authorize, login
+from github3 import GitHub, authorize
 from github3.exceptions import UnprocessableEntity
 
 
@@ -47,7 +47,7 @@ def two_factor_callback():
 	return code
 
 # http://github3py.readthedocs.io/en/master/
-def create_token():
+def create_token() -> GitHub:
 	user = getuser()
 	password = ''
 	
@@ -79,16 +79,16 @@ def create_token():
 		print(auth.token, file=f)
 		print(auth.id, file=f)
 	
-	return login(token=auth.token)
+	return GitHub(token=auth.token)
 
-def auth():
+def auth() -> GitHub:
 	if CREDENTIALS_FILE.is_file():
 		token = id = ''
 		with CREDENTIALS_FILE.open('r') as fd:
 			token = fd.readline().strip()  # Can't hurt to be paranoid
 			id = fd.readline().strip()
 		
-		gh = login(token=token)
+		gh = GitHub(token=token)
 		#auth = gh.authorization(id)
 		return gh
 	else:
@@ -110,6 +110,7 @@ for repo in org.repositories():
 		repo_index.write(template_repo(repo, release_list))
 	
 	for release in releases:
+		print('Handling', repo.name, release.tag_name)
 		release_tar = repo_dir / (release.tag_name + '.tar.gz')
 		if not release_tar.is_file():
 			print('downloading', release_tar)
@@ -128,7 +129,8 @@ for repo in org.repositories():
 					with rel_pkg.extractfile(str(tar_path)) as src, path.open('wb') as dst:
 						copyfileobj(src, dst)
 		
-		run(['Rscript', str(HERE / 'convert-rd.r'), str(package_dir), str(release_dir)],
+		(package_dir / '_pkgdown.yml').write_text(f'destination: {release_dir.resolve()}\n')
+		run(['Rscript', str(HERE / 'convert-rd.r'), str(package_dir)],
 			check=True)
 		
 		for pdf in HERE.glob('Rplots*.pdf'):
