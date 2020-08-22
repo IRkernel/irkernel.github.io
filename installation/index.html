@@ -19,14 +19,14 @@ class: installation
 		<a href="#devel-panel" class=mdl-tabs__tab>Development</a>
 	</div>
 	<div class="mdl-tabs__panel is-active" id=binary-panel>
-		<h3>1/2) Installing via CRAN</h3>
+		<h3>1/3) Installing via CRAN</h3>
 		<p>If you are on linux, go to the <a href="#source-panel">Source</a> instructions</p>
 		<p>You can install all packages using the following lines in an R console:</p>
-		<pre class="r mdl-shadow--2dp"><code>install.packages('IRkernel')  # Don’t forget step 2/2!</code></pre>
+		<pre class="r mdl-shadow--2dp"><code>install.packages('IRkernel')  # Don’t forget step 2/3!</code></pre>
 		<p>To update the IRkernel package, use <code class=r>update.packages()</code></p>
 	</div>
 	<div class=mdl-tabs__panel id=source-panel>
-		<h3>1/2) Installing from source</h2>
+		<h3>1/3) Installing from source</h2>
 		<h4>ZMQ</h3>
 		<p>You'll need zmq development headers to compile pbdZMQ (Click your OS):</p>
 		<div class="mdl-tabs mdl-js-tabs-fixed mdl-js-ripple-effect mdl-shadow--2dp">
@@ -71,7 +71,7 @@ export LIBRARY_PATH=/opt/local/lib</code></pre></li>
 		<p>To update your source installation, repeat above step.</p>
 	</div>
 	<div class=mdl-tabs__panel id=devel-panel>
-		<h3>1/2) Development Version<br>(Only recommended to test a bugfix which is not yet in a stable version)</h3>
+		<h3>1/3) Development Version<br>(Only recommended to test a bugfix which is not yet in a stable version)</h3>
 		<p>If you want to compile the latest and greatest (and maybe buggiest…) from git, the easiest way is via the <code>devtools</code> package.</p>
 		<p>On Ubuntu/Debian, a header package is needed to compile RCurl:</p>
 		<pre class="bash mdl-shadow--2dp"><code>sudo apt-get install libcurl4-openssl-dev</code></pre>
@@ -88,7 +88,7 @@ devtools::install_github(paste0(
 	</div>
 </div>
 
-<h3>2/2) Making the kernel available to Jupyter</h3>
+<h3>2/3) Making the kernel available to Jupyter</h3>
 
 <aside class="card-note mdl-card mdl-shadow--2dp">
 	<div class="mdl-card__title">
@@ -109,5 +109,19 @@ devtools::install_github(paste0(
 <pre class="r mdl-shadow--2dp"><code>IRkernel::installspec()</code></pre>
 <p>To install system-wide, set <code>user</code> to False in the <code>installspec</code> command:</p>
 <pre class="r mdl-shadow--2dp"><code>IRkernel::installspec(user = FALSE)</code></pre>
+
+<h3>3/3) Make useful shortcuts available
+
+<p>
+	If you use Jupyter lab (and you should!), install Ryan Homer’s
+	<a href="https://github.com/ryanhomer/jupyterext-text-shortcuts">text-shortcuts</a>
+	extension.
+</p>
+<pre class="r mdl-shadow--2dp"><code>jupyter labextension install @techrah/text-shortcuts</code></pre>
+<p>
+	It will make available the familiar shortcuts
+	<kbd>Ctrl/⌘</kbd><kbd>⇧</kbd><kbd>M</kbd> to insert <code>%>%</code> and
+	<kbd>Alt</kbd><kbd>-</kbd> to insert <code><-</code>:
+</p>
 
 </section>
