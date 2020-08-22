@@ -9,6 +9,15 @@ output {
 	font-style: italic;
 }
 
+kbd {
+	padding: .2rem .4rem;
+	font-size: 87.5%;
+	color: #fff;
+	background-color: #212529;
+	border-radius: .0625rem;
+	box-shadow: inset 0 -.1rem 0 rgba(0,0,0,.25);
+}
+
 #landing-title {
 	line-height: 1.2;
 	align-self: center;
